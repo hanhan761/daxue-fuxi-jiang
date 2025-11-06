@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Review 智能复习</title>
+    <!-- 引入 style.css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 1. 头部导航 -->
+        <header class="app-header">
+            <div class="container">
+                <a href="#/" class="logo">Smart Review</a>
+                <nav class="main-nav">
+                    <a href="#/" class="nav-link">主页</a>
+                    <a href="#/stats" class="nav-link">统计</a>
+                </nav>
+                <!-- NEW: 隐藏的文件导入 input -->
+                <!-- 它将被主页上“导入”按钮的 <label> 触发 -->
+                <input type="file" id="import-file-input" class="hidden" accept=".json">
+            </div>
+        </header>
+
+        <!-- 2. 主内容区域 (由 JS 动态填充) -->
+        <main id="main-content" class="container">
+            <!-- 页面内容将在这里渲染 -->
+        </main>
+
+        <!-- 3. 模态弹窗 (默认隐藏) -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3 id="modal-title">模态框标题</h3>
+                <div id="modal-body">
+                    <p>模态框内容...</p>
+                </div>
+                <div class="modal-actions">
+                    <button id="modal-btn-cancel" class="btn btn-secondary">取消</button>
+                    <button id="modal-btn-confirm" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 app.js (必须在 body 底部) -->
+    <script src="app.js"></script>
+</body>
+</html>
+
