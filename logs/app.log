@@ -1,0 +1,1451 @@
+2025-11-22 08:54:09 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): F:\daxuefuxijiang\v3\多智能体\1_inputs
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 未找到需要处理的新文件。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 完成: 预处理。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.00 秒) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'ListItem', 'Table', 'NarrativeText', 'Text', 'Formula', 'Title'}
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\1_preprocessed
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 整合完成！共生成 4 个【高信噪比】知识块(Chunks)。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.01 秒) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 08:54:12 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 分类完成！共处理 4 个知识块。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified\catalog_smart.json
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 6.77 秒) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 10
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 已提交 4 个解析任务，等待 API 返回...
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 解析完成！共从 4 个知识块中生成了 0 个 Q&A 条目。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 0.23 秒) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 0.23 秒) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.00 秒) ---
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] :     总耗时: 7.31 秒
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] :     最终产物: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 08:54:19 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:01:31 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): F:\daxuefuxijiang\v3\多智能体\1_inputs
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 未找到需要处理的新文件。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 完成: 预处理。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Title', 'Text', 'Formula', 'Table', 'ListItem', 'NarrativeText'}
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\1_preprocessed
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 整合完成！共生成 4 个【高信噪比】知识块(Chunks)。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.01 秒) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 09:01:34 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 分类完成！共处理 4 个知识块。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified\catalog_smart.json
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 7.89 秒) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 3
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 已提交 4 个解析任务，等待 API 返回...
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 解析完成！共从 4 个知识块中生成了 0 个 Q&A 条目。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 0.23 秒) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 0.23 秒) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] :     总耗时: 8.44 秒
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] :     最终产物: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 09:01:42 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:02:19 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): F:\daxuefuxijiang\v3\多智能体\1_inputs
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 未找到需要处理的新文件。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 完成: 预处理。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Formula', 'ListItem', 'Table', 'Text', 'NarrativeText', 'Title'}
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\1_preprocessed
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 整合完成！共生成 4 个【高信噪比】知识块(Chunks)。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.01 秒) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 09:02:22 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 分类完成！共处理 4 个知识块。
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified\catalog_smart.json
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 6.91 秒) ---
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 已提交 4 个解析任务，等待 API 返回...
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 解析完成！共从 4 个知识块中生成了 0 个 Q&A 条目。
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 0.23 秒) ---
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 09:02:29 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 0.23 秒) ---
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] :     总耗时: 7.44 秒
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] :     最终产物: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 09:02:30 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:12:09 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): F:\daxuefuxijiang\v3\多智能体\1_inputs
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 未找到需要处理的新文件。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 完成: 预处理。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Title', 'Table', 'ListItem', 'Text', 'Formula', 'NarrativeText'}
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\1_preprocessed
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 整合完成！共生成 4 个【高信噪比】知识块(Chunks)。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.01 秒) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 09:12:12 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 09:12:13 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 分类完成！共处理 4 个知识块。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified\catalog_smart.json
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 11.65 秒) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 已提交 4 个解析任务，等待 API 返回...
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 解析完成！共从 4 个知识块中生成了 0 个 Q&A 条目。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 0.24 秒) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 0.23 秒) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] :     总耗时: 12.20 秒
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] :     最终产物: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 09:12:24 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:15:46 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] :     - 已自动删除: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): F:\daxuefuxijiang\v3\多智能体\1_inputs
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 未找到需要处理的新文件。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 完成: 预处理。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.00 秒) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Title', 'ListItem', 'Formula', 'NarrativeText', 'Text', 'Table'}
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\1_preprocessed
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 整合完成！共生成 4 个【高信噪比】知识块(Chunks)。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.01 秒) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 09:15:49 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 09:15:50 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 分类完成！共处理 4 个知识块。
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\3_classified\catalog_smart.json
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 7.27 秒) ---
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 09:15:57 [INFO ] [SmartReviewGene] : 已提交 4 个解析任务，等待 API 返回...
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 解析完成！共从 4 个知识块中生成了 8 个 Q&A 条目。
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4_parsed
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 17.49 秒) ---
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 扫描完成，共找到 8 个有效标题。
+2025-11-22 09:16:14 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 0 个可统一的组。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 0 个新的统一知识点。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :   > 合成 0 个新知识点。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :   > 复制 8 个未分组知识点。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :   > 总计 8 个知识点已保存到: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 2.66 秒) ---
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: F:\daxuefuxijiang\v3\多智能体\2_outputs\4.5_unified
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 扫描完成，找到 8 个 Q&A 条目准备打包。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 打包完成！共 8 个知识点已合并。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.01 秒) ---
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :     总耗时: 27.50 秒
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :     最终产物: F:\daxuefuxijiang\v3\多智能体\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 09:16:17 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 09:32:29 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 16:48:23 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 16:48:23 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 16:48:23 [CRITI] [SmartReviewGene] : 启动失败: No module named 'src.orchestrator'
+2025-11-22 16:51:48 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 16:51:48 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 16:51:53 [CRITI] [SmartReviewGene] : 启动失败: module 'configs.settings' has no attribute 'PROJECT_ROOT'
+2025-11-22 16:54:25 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 16:54:25 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 16:54:41 [INFO ] [SmartReviewGene] : >>> 收到生成请求
+2025-11-22 16:54:41 [INFO ] [SmartReviewGene] : 正在重载智能体模块...
+2025-11-22 16:54:41 [INFO ] [SmartReviewGene] : src.orchestrator 重载完成
+2025-11-22 16:54:41 [INFO ] [SmartReviewGene] : 已保存 1 个文件到输入目录: 1_inputs\outlines
+2025-11-22 16:54:41 [INFO ] [SmartReviewGene] : 准备启动 src.orchestrator.run_pipeline()，输入目录: 1_inputs\outlines...
+2025-11-22 16:54:41 [ERROR] [SmartReviewGene] : 处理请求时发生未知错误
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 79, in generate_kb
+    result = src.orchestrator.run_pipeline(input_dir=target_folder)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_pipeline() got an unexpected keyword argument 'input_dir'
+2025-11-22 16:59:01 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 16:59:01 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 16:59:16 [INFO ] [SmartReviewGene] : >>> 收到生成请求
+2025-11-22 16:59:16 [INFO ] [SmartReviewGene] : 正在重载智能体模块...
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : src.orchestrator 重载完成
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 已保存 1 个文件到输入目录: 1_inputs\outlines
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 准备启动 src.orchestrator.run_pipeline()，输入目录: 1_inputs\outlines...
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 接收到自定义输入目录: 1_inputs\outlines
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     -> settings.INPUTS_DIR 已动态更新为: C:\Users\13081\Desktop\v4\1_inputs\outlines
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\2_integrated
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\3_classified
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\5_final
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\1_inputs\outlines
+2025-11-22 16:59:17 [INFO ] [SmartReviewGene] : 扫描完成，找到 2 个新文件需要处理。
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 23.16 秒) ---
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Formula', 'Title', 'NarrativeText', 'Text', 'ListItem', 'Table'}
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 扫描完成，找到 3 个预处理文件准备整合。
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 整合完成！共生成 57 个【高信噪比】知识块(Chunks)。
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.07 秒) ---
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 16:59:40 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 16:59:41 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : 分类完成！共处理 57 个知识块。
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 64.28 秒) ---
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 17:00:44 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 17:00:46 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 17:00:46 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 17:00:46 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 17:00:46 [INFO ] [SmartReviewGene] : 已提交 57 个解析任务，等待 API 返回...
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] : !!! pdflatex 编译失败 !!!
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] :     原始 LaTeX: K = \frac{t_1}{t_2}
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] :     --- STDOUT (编译日志) ---
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] : 
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] :     --- STDERR ---
+2025-11-22 17:03:08 [ERROR] [SmartReviewGene] : 
+2025-11-22 17:03:18 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 17:03:18 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 17:19:56 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 17:19:56 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : >>> 收到生成请求
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 正在重载智能体模块...
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 任务 [c8d536a7-3f8f-4fa2-97e9-93ea37278d33] 已保存 1 个文件到专属目录: C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 启动 Pipeline，输入源: C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33...
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 接收到自定义输入目录: C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     -> settings.INPUTS_DIR 已动态更新为: C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\2_integrated
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\3_classified
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\5_final
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 17:20:18 [ERROR] [SmartReviewGene] : !!! 处理文件 C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33\txt 时发生错误: Partitioning is not supported for the FileType.UNK file type.
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_preprocessor.py", line 95, in run_preprocessing
+    elements = partition(
+               ^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 291, in partition
+    partition = partitioner_loader.get(file_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 357, in get
+    raise UnsupportedFileFormatError(
+unstructured.partition.common.UnsupportedFileFormatError: Partitioning is not supported for the FileType.UNK file type.
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 0.03 秒) ---
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'ListItem', 'Text', 'Table', 'Title', 'Formula', 'NarrativeText'}
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 17:20:18 [INFO ] [SmartReviewGene] : 扫描完成，找到 3 个预处理文件准备整合。
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : 整合完成！共生成 57 个【高信噪比】知识块(Chunks)。
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.11 秒) ---
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 17:20:19 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 17:20:20 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : 分类完成！共处理 57 个知识块。
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 66.33 秒) ---
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 17:21:25 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 17:21:26 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 17:21:26 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 17:21:26 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 17:21:26 [INFO ] [SmartReviewGene] : 已提交 57 个解析任务，等待 API 返回...
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : 解析完成！共从 57 个知识块中生成了 171 个 Q&A 条目。
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 323.22 秒) ---
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 17:26:48 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 17:26:50 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 17:26:50 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '取构件1为机架时形成什么机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双转块机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是导杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄滑块机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:50 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是正切机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:51 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:51 [WARNI] [SmartReviewGene] : 发现重复标题: '哪些机构存在死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 17:26:52 [WARNI] [SmartReviewGene] : 发现重复标题: '行程速比系数定义'。统一器可能无法合并所有变体。
+2025-11-22 17:26:52 [INFO ] [SmartReviewGene] : 扫描完成，共找到 157 个有效标题。
+2025-11-22 17:26:52 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 17:27:11 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 8 个可统一的组。
+2025-11-22 17:27:11 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 8 个新的统一知识点。
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] :   > 合成 8 个新知识点。
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] :   > 复制 136 个未分组知识点。
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] :   > 总计 144 个知识点已保存到: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 95.94 秒) ---
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:28:24 [INFO ] [SmartReviewGene] : 扫描完成，找到 144 个 Q&A 条目准备打包。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 打包完成！共 144 个知识点已合并。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.54 秒) ---
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] :     总耗时: 486.27 秒
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] :     最终产物: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : Pipeline 执行结束，准备读取结果
+2025-11-22 17:28:25 [ERROR] [SmartReviewGene] : 未找到输出文件。请检查 server_debug.log 是否有报错。
+2025-11-22 17:28:25 [INFO ] [SmartReviewGene] : 任务 [c8d536a7-3f8f-4fa2-97e9-93ea37278d33] 临时目录已清理: C:\Users\13081\Desktop\v4\temp_uploads\c8d536a7-3f8f-4fa2-97e9-93ea37278d33
+2025-11-22 17:44:44 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 17:44:44 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : >>> 收到生成请求
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 正在重载智能体模块...
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 任务 [c3403da0-8bbe-4a79-8f26-c8df750bb39d] 已保存 1 个文件到专属目录: C:\Users\13081\Desktop\v4\temp_uploads\c3403da0-8bbe-4a79-8f26-c8df750bb39d
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 启动 Pipeline，输入源: C:\Users\13081\Desktop\v4\temp_uploads\c3403da0-8bbe-4a79-8f26-c8df750bb39d...
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 接收到自定义输入目录: C:\Users\13081\Desktop\v4\temp_uploads\c3403da0-8bbe-4a79-8f26-c8df750bb39d
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     -> settings.INPUTS_DIR 已动态更新为: C:\Users\13081\Desktop\v4\temp_uploads\c3403da0-8bbe-4a79-8f26-c8df750bb39d
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : [0/6] 正在清扫旧的产物...
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\2_integrated
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\3_classified
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] :     - 已自动删除: C:\Users\13081\Desktop\v4\2_outputs\5_final
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : [0/6] 正在初始化：创建所有输出目录...
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : ...目录准备完毕。
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】(Pre-processor) ---
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\c3403da0-8bbe-4a79-8f26-c8df750bb39d
+2025-11-22 17:45:09 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : --- 步骤 1 完成 (耗时: 4.61 秒) ---
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】(Integrator) ---
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'Title', 'Formula', 'ListItem', 'Text', 'Table'}
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 扫描完成，找到 4 个预处理文件准备整合。
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 整合完成！共生成 79 个【高信噪比】知识块(Chunks)。
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : --- 步骤 2 完成 (耗时: 0.04 秒) ---
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】(Classifier) ---
+2025-11-22 17:45:14 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 17:45:15 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : 分类完成！共处理 79 个知识块。
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : --- 步骤 3 完成 (耗时: 92.84 秒) ---
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】(Parser) ---
+2025-11-22 17:46:47 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 17:46:48 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 17:46:48 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 17:46:48 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 17:46:48 [INFO ] [SmartReviewGene] : 已提交 79 个解析任务，等待 API 返回...
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : 解析完成！共从 79 个知识块中生成了 183 个 Q&A 条目。
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : --- 步骤 4 完成 (耗时: 352.21 秒) ---
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】(Unifier) ---
+2025-11-22 17:52:39 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 17:52:40 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 17:52:40 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '取构件1为机架时形成什么机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是导杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄滑块机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是正切机构？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:41 [WARNI] [SmartReviewGene] : 发现重复标题: '哪些机构存在死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 17:52:42 [WARNI] [SmartReviewGene] : 发现重复标题: '行程速比系数定义'。统一器可能无法合并所有变体。
+2025-11-22 17:52:42 [INFO ] [SmartReviewGene] : 扫描完成，共找到 170 个有效标题。
+2025-11-22 17:52:42 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 17:53:08 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 12 个可统一的组。
+2025-11-22 17:53:08 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 17:54:54 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 12 个新的统一知识点。
+2025-11-22 17:54:54 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :   > 合成 12 个新知识点。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :   > 复制 128 个未分组知识点。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :   > 总计 140 个知识点已保存到: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : --- 步骤 5 完成 (耗时: 135.76 秒) ---
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】(Merger) ---
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 扫描完成，找到 140 个 Q&A 条目准备打包。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 打包完成！共 140 个知识点已合并。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : --- 步骤 6 完成 (耗时: 0.50 秒) ---
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :     总耗时: 586.26 秒
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :     最终产物: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] :     👉 你现在可以将此文件导入到 'Smart Review' 应用中。
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : Pipeline 执行结束，准备读取结果
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 成功读取结果文件，包含 0 个节点
+2025-11-22 17:54:55 [INFO ] [SmartReviewGene] : 任务 [c3403da0-8bbe-4a79-8f26-c8df750bb39d] 临时目录已清理
+2025-11-22 18:44:55 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 18:44:55 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 18:48:30 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 18:48:30 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : >>> [任务 fbdf94d7-17fe-44e8-9347-b313fed556a8] 收到生成请求
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\fbdf94d7-17fe-44e8-9347-b313fed556a8
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : [0/6] 初始化：清扫旧产物并创建目录...
+2025-11-22 18:48:55 [CRITI] [SmartReviewGene] : 
+!!! 💥 流水线中断: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'C:\\Users\\13081\\Desktop\\v4\\2_outputs\\5_final'
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\orchestrator.py", line 101, in run_pipeline
+    shutil.rmtree(d)
+  File "C:\Users\13081\.conda\envs\daxue\Lib\shutil.py", line 787, in rmtree
+    return _rmtree_unsafe(path, onerror)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\shutil.py", line 638, in _rmtree_unsafe
+    onerror(os.rmdir, path, sys.exc_info())
+  File "C:\Users\13081\.conda\envs\daxue\Lib\shutil.py", line 636, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'C:\\Users\\13081\\Desktop\\v4\\2_outputs\\5_final'
+2025-11-22 18:48:55 [ERROR] [SmartReviewGene] : 任务 [fbdf94d7-17fe-44e8-9347-b313fed556a8] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 18:48:55 [INFO ] [SmartReviewGene] : 任务 [fbdf94d7-17fe-44e8-9347-b313fed556a8] 输入临时文件已清理
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : >>> [任务 73b428aa-ca21-4b39-b3b1-111c678ffd30] 收到生成请求
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\73b428aa-ca21-4b39-b3b1-111c678ffd30
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : [0/6] 初始化：清扫旧产物并创建目录...
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\73b428aa-ca21-4b39-b3b1-111c678ffd30
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 18:51:48 [ERROR] [SmartReviewGene] : !!! 处理文件 C:\Users\13081\Desktop\v4\temp_uploads\73b428aa-ca21-4b39-b3b1-111c678ffd30\txt 时发生错误: Partitioning is not supported for the FileType.UNK file type.
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_preprocessor.py", line 95, in run_preprocessing
+    elements = partition(
+               ^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 291, in partition
+    partition = partitioner_loader.get(file_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 357, in get
+    raise UnsupportedFileFormatError(
+unstructured.partition.common.UnsupportedFileFormatError: Partitioning is not supported for the FileType.UNK file type.
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'Formula', 'Text', 'Table', 'Title', 'ListItem'}
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 扫描完成，找到 4 个预处理文件准备整合。
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 整合完成！共生成 79 个【高信噪比】知识块(Chunks)。
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 18:51:48 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 18:51:50 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 18:53:13 [INFO ] [SmartReviewGene] : 分类完成！共处理 79 个知识块。
+2025-11-22 18:53:13 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 18:53:13 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 18:53:13 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 18:53:13 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 18:53:15 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 18:53:15 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 18:53:15 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 18:53:15 [INFO ] [SmartReviewGene] : 已提交 79 个解析任务，等待 API 返回...
+2025-11-22 18:59:13 [INFO ] [SmartReviewGene] : 解析完成！共从 79 个知识块中生成了 187 个 Q&A 条目。
+2025-11-22 18:59:13 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 18:59:13 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 18:59:13 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 18:59:13 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 18:59:15 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 18:59:15 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '取构件1为机架时形成什么机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双曲柄机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双转块机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是双摇杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是导杆机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是曲柄滑块机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:15 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是正切机构？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:16 [WARNI] [SmartReviewGene] : 发现重复标题: '什么是死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:16 [WARNI] [SmartReviewGene] : 发现重复标题: '哪些机构存在死点位置？'。统一器可能无法合并所有变体。
+2025-11-22 18:59:16 [WARNI] [SmartReviewGene] : 发现重复标题: '行程速比系数定义'。统一器可能无法合并所有变体。
+2025-11-22 18:59:16 [INFO ] [SmartReviewGene] : 扫描完成，共找到 173 个有效标题。
+2025-11-22 18:59:16 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 18:59:42 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 12 个可统一的组。
+2025-11-22 18:59:42 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 19:01:26 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 12 个新的统一知识点。
+2025-11-22 19:01:26 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] :   > 合成 12 个新知识点。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] :   > 复制 137 个未分组知识点。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] :   > 总计 149 个知识点已保存到: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 扫描完成，找到 149 个 Q&A 条目准备打包。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 打包完成！共 149 个知识点已合并。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中 (前端将识别为 V2 格式)。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] :     ✅ 已清理 5 个中间目录，硬盘空间已释放。
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:01:27 [INFO ] [SmartReviewGene] :     总耗时: 579.30 秒
+2025-11-22 19:01:28 [INFO ] [SmartReviewGene] : 任务完成，返回 149 个节点
+2025-11-22 19:01:28 [INFO ] [SmartReviewGene] : 任务 [73b428aa-ca21-4b39-b3b1-111c678ffd30] 输入临时文件已清理
+2025-11-22 19:08:06 [INFO ] [SmartReviewGene] : >>> [任务 8d848109-1f0a-4711-91c7-509d4c0fe5d0] 收到生成请求
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\8d848109-1f0a-4711-91c7-509d4c0fe5d0
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（执行彻底清扫）...
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : ...环境准备就绪 (无残留)。
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\8d848109-1f0a-4711-91c7-509d4c0fe5d0
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:08:07 [ERROR] [SmartReviewGene] : !!! 处理文件 C:\Users\13081\Desktop\v4\temp_uploads\8d848109-1f0a-4711-91c7-509d4c0fe5d0\txt 时发生错误: Partitioning is not supported for the FileType.UNK file type.
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_preprocessor.py", line 95, in run_preprocessing
+    output_data = []
+               ^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 291, in partition
+    partition = partitioner_loader.get(file_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 357, in get
+    raise UnsupportedFileFormatError(
+unstructured.partition.common.UnsupportedFileFormatError: Partitioning is not supported for the FileType.UNK file type.
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 耗时: 0.01 s ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'Formula', 'Text', 'Table', 'Title', 'ListItem'}
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 未找到预处理过的 .json 文件。
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:08:07 [ERROR] [SmartReviewGene] : 错误：找不到“哑”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json'。请先运行步骤 2。
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:08:07 [ERROR] [SmartReviewGene] : 错误：找不到“智能”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json'。请先运行步骤 3。
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:08:07 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : --- 耗时: 1.52 s ---
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] :     总耗时: 1.58 秒
+2025-11-22 19:08:08 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到文件: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:08:08 [ERROR] [SmartReviewGene] : 任务 [8d848109-1f0a-4711-91c7-509d4c0fe5d0] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 19:08:08 [INFO ] [SmartReviewGene] : 任务 [8d848109-1f0a-4711-91c7-509d4c0fe5d0] 输入临时文件已清理
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : >>> [任务 2aa45174-7174-4152-b7fd-c398f26925f7] 收到生成请求
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\2aa45174-7174-4152-b7fd-c398f26925f7
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（执行彻底清扫）...
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : ...环境准备就绪 (无残留)。
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\2aa45174-7174-4152-b7fd-c398f26925f7
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:17:06 [ERROR] [SmartReviewGene] : !!! 处理文件 C:\Users\13081\Desktop\v4\temp_uploads\2aa45174-7174-4152-b7fd-c398f26925f7\txt 时发生错误: Partitioning is not supported for the FileType.UNK file type.
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_preprocessor.py", line 95, in run_preprocessing
+    "metadata": {"filename": os.path.basename(file_path)}
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 291, in partition
+    partition = partitioner_loader.get(file_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\unstructured\partition\auto.py", line 357, in get
+    raise UnsupportedFileFormatError(
+unstructured.partition.common.UnsupportedFileFormatError: Partitioning is not supported for the FileType.UNK file type.
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 完成: 预处理。所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 耗时: 0.04 s ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'Formula', 'Text', 'Table', 'Title', 'ListItem'}
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 未找到预处理过的 .json 文件。
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:17:06 [ERROR] [SmartReviewGene] : 错误：找不到“哑”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json'。请先运行步骤 2。
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:17:06 [ERROR] [SmartReviewGene] : 错误：找不到“智能”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json'。请先运行步骤 3。
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:17:06 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : --- 耗时: 1.54 s ---
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] :     总耗时: 1.63 秒
+2025-11-22 19:17:08 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到文件: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:17:08 [ERROR] [SmartReviewGene] : 任务 [2aa45174-7174-4152-b7fd-c398f26925f7] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 19:17:08 [INFO ] [SmartReviewGene] : 任务 [2aa45174-7174-4152-b7fd-c398f26925f7] 输入临时文件已清理
+2025-11-22 19:20:58 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 19:20:58 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : >>> [任务 78e43d19-3ece-458d-8d46-96b4870ff602] 收到生成请求
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\78e43d19-3ece-458d-8d46-96b4870ff602
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\78e43d19-3ece-458d-8d46-96b4870ff602
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:21:28 [ERROR] [SmartReviewGene] : Unstructured 解析失败: Partitioning is not supported for the FileType.UNK file type.
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 0/1 个文件。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 耗时: 0.03 s ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Text', 'Title', 'NarrativeText', 'Formula', 'ListItem', 'Table'}
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 未找到预处理过的 .json 文件。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 耗时: 0.01 s ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:21:28 [ERROR] [SmartReviewGene] : 错误：找不到“哑”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json'。请先运行步骤 2。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:21:28 [ERROR] [SmartReviewGene] : 错误：找不到“智能”目录文件 'C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json'。请先运行步骤 3。
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:21:28 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : --- 耗时: 1.70 s ---
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] :     总耗时: 1.77 秒
+2025-11-22 19:21:30 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到文件: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:21:30 [ERROR] [SmartReviewGene] : 任务 [78e43d19-3ece-458d-8d46-96b4870ff602] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 19:21:30 [INFO ] [SmartReviewGene] : 任务 [78e43d19-3ece-458d-8d46-96b4870ff602] 输入临时文件已清理
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : >>> [任务 17b13737-ba22-468e-a768-9a52bf9e456b] 收到生成请求
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\17b13737-ba22-468e-a768-9a52bf9e456b
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\17b13737-ba22-468e-a768-9a52bf9e456b
+2025-11-22 19:21:42 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : --- 耗时: 4.57 s ---
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Text', 'Title', 'NarrativeText', 'Formula', 'ListItem', 'Table'}
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 整合完成！共生成 22 个【高信噪比】知识块(Chunks)。
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : --- 耗时: 0.03 s ---
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:21:46 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:21:48 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : 分类完成！共处理 22 个知识块。
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : --- 耗时: 29.64 s ---
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:22:16 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:22:18 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 19:22:18 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 19:22:18 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 19:22:18 [INFO ] [SmartReviewGene] : 已提交 22 个解析任务，等待 API 返回...
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : 解析完成！共从 22 个知识块中生成了 16 个 Q&A 条目。
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : --- 耗时: 46.29 s ---
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:23:02 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:23:04 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:23:04 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:23:04 [INFO ] [SmartReviewGene] : 扫描完成，共找到 16 个有效标题。
+2025-11-22 19:23:04 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 0 个可统一的组。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 0 个新的统一知识点。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :   > 合成 0 个新知识点。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :   > 复制 16 个未分组知识点。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :   > 总计 16 个知识点已保存到: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : --- 耗时: 3.29 s ---
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 扫描完成，找到 16 个 Q&A 条目准备打包。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 打包完成！共 16 个知识点已合并。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中 (前端将识别为 V2 格式)。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : --- 耗时: 0.03 s ---
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] :     总耗时: 83.88 秒
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 任务完成，返回 16 个节点
+2025-11-22 19:23:06 [INFO ] [SmartReviewGene] : 任务 [17b13737-ba22-468e-a768-9a52bf9e456b] 输入临时文件已清理
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : >>> [任务 4a40fd31-1349-412b-9701-2ace81b50bc9] 收到生成请求
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\4a40fd31-1349-412b-9701-2ace81b50bc9
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\4a40fd31-1349-412b-9701-2ace81b50bc9
+2025-11-22 19:24:07 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : --- 耗时: 1.14 s ---
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Text', 'Title', 'NarrativeText', 'Formula', 'ListItem', 'Table'}
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 整合完成！共生成 34 个【高信噪比】知识块(Chunks)。
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : --- 耗时: 0.02 s ---
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:24:08 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:24:10 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : 分类完成！共处理 34 个知识块。
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : --- 耗时: 40.32 s ---
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:24:48 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:24:50 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 19:24:50 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 19:24:50 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 19:24:50 [INFO ] [SmartReviewGene] : 已提交 34 个解析任务，等待 API 返回...
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : 解析完成！共从 34 个知识块中生成了 18 个 Q&A 条目。
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : --- 耗时: 58.09 s ---
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:25:46 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:25:48 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:25:48 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:25:48 [INFO ] [SmartReviewGene] : 扫描完成，共找到 18 个有效标题。
+2025-11-22 19:25:48 [INFO ] [SmartReviewGene] : 调用 '分组' LLM 以识别可合并的条目...
+2025-11-22 19:25:55 [INFO ] [SmartReviewGene] : 分组成功，LLM 识别出 3 个可统一的组。
+2025-11-22 19:25:55 [INFO ] [SmartReviewGene] : 阶段 2: 开始多线程合成新知识点...
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 合成阶段完成。共生成 3 个新的统一知识点。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 阶段 3: 复制所有未被合并的知识点...
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 统一器 (Unifier) 全部完成！
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :   > 合成 3 个新知识点。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :   > 复制 8 个未分组知识点。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :   > 总计 11 个知识点已保存到: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 下一步：运行 '5_merger.py' (即流水线第 6 步) 来打包这个新目录。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : --- 耗时: 39.36 s ---
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 扫描完成，找到 11 个 Q&A 条目准备打包。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 打包完成！共 11 个知识点已合并。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 最终知识库文件已保存到:
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 你现在可以将此文件导入到 'Smart Review' 应用中 (前端将识别为 V2 格式)。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : --- 耗时: 0.08 s ---
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] :     总耗时: 139.07 秒
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 任务完成，返回 11 个节点
+2025-11-22 19:26:26 [INFO ] [SmartReviewGene] : 任务 [4a40fd31-1349-412b-9701-2ace81b50bc9] 输入临时文件已清理
+2025-11-22 19:33:21 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 19:33:21 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 19:39:09 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 19:39:09 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : >>> [任务 99aba476-533a-4732-bc12-c3df56790bc4] 收到生成请求
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\99aba476-533a-4732-bc12-c3df56790bc4
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\99aba476-533a-4732-bc12-c3df56790bc4
+2025-11-22 19:39:31 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : --- 耗时: 2.52 s ---
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'ListItem', 'Text', 'Title', 'Table', 'Formula'}
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 整合完成！共生成 2 个【高信噪比】知识块(Chunks)。
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : --- 耗时: 0.02 s ---
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:39:33 [INFO ] [SmartReviewGene] : 
+--- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:39:35 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 19:39:36 [ERROR] [SmartReviewGene] : !!! 调用 API 分类时失败: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}，已回退到 'GENERAL'。
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_classifier.py", line 70, in classify_chunk_content
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1156, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-11-22 19:39:36 [ERROR] [SmartReviewGene] : !!! 调用 API 分类时失败: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}，已回退到 'GENERAL'。
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_classifier.py", line 70, in classify_chunk_content
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1156, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : 分类完成！共处理 2 个知识块。
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\3_classified\catalog_smart.json
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : --- 耗时: 3.03 s ---
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : 
+--- [4/6] 运行【解析/提取器】 ---
+2025-11-22 19:39:36 [INFO ] [SmartReviewGene] : 
+--- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 使用模型: DEFINITION -> deepseek-chat, FORMULA -> deepseek-chat
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 启动多线程解析，最大并发数 (MAX_WORKERS): 1
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始解析...
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 已提交 2 个解析任务，等待 API 返回...
+2025-11-22 19:39:38 [ERROR] [SmartReviewGene] : !!! 调用 API 解析时失败: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_parser.py", line 67, in call_parser_agent
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1156, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-11-22 19:39:38 [WARNI] [SmartReviewGene] : API 调用为 chunk RL-_p1 (DEFINITION) 返回空，跳过。
+2025-11-22 19:39:38 [ERROR] [SmartReviewGene] : !!! 调用 API 解析时失败: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_parser.py", line 67, in call_parser_agent
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1156, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\13081\.conda\envs\daxue\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Authentication Fails, Your api key: ****HERE is invalid', 'type': 'authentication_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-11-22 19:39:38 [WARNI] [SmartReviewGene] : API 调用为 chunk RL-_p2 (DEFINITION) 返回空，跳过。
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 解析完成！共从 2 个知识块中生成了 0 个 Q&A 条目。
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 所有 Q&A JSON 文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\4_parsed
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 完成: 解析。
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : --- 耗时: 1.77 s ---
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 
+--- [5/6] 运行【统一器】 ---
+2025-11-22 19:39:38 [INFO ] [SmartReviewGene] : 
+--- 步骤 4.5: 统一 (Unifying) ---
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 使用模型: UNIFIER -> deepseek-chat
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 阶段 1: 扫描所有已解析的知识点标题...
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 未找到 '4_parsed' 中的文件。统一器结束。
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : --- 耗时: 1.61 s ---
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 
+--- [6/6] 运行【打包器】 ---
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 
+--- 步骤 6: 打包 (Merging) ---
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 正在扫描“统一后”的目录: C:\Users\13081\Desktop\v4\2_outputs\4.5_unified
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 未找到“统一后”的 .json 文件。
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 完成: 打包。
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : --- 耗时: 0.00 s ---
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在清理中间过程文件...
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : ===   ✅ 流水线全部执行完毕   ===
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] :     总耗时: 9.00 秒
+2025-11-22 19:39:40 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到文件: C:\Users\13081\Desktop\v4\2_outputs\5_final\Smart_Review_KB.json
+2025-11-22 19:39:40 [ERROR] [SmartReviewGene] : 任务 [99aba476-533a-4732-bc12-c3df56790bc4] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 19:39:40 [INFO ] [SmartReviewGene] : 任务 [99aba476-533a-4732-bc12-c3df56790bc4] 输入临时文件已清理
+2025-11-22 19:50:31 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 19:50:31 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : >>> [任务 c41b80cf-9b97-4210-801e-b0bce6a76632] 收到生成请求
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : =================================================
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\v4\temp_uploads\c41b80cf-9b97-4210-801e-b0bce6a76632
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\v4\temp_uploads\c41b80cf-9b97-4210-801e-b0bce6a76632
+2025-11-22 19:51:02 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : --- 耗时: 2.86 s ---
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'NarrativeText', 'Text', 'Formula', 'Title', 'Table', 'ListItem'}
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\v4\2_outputs\1_preprocessed
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 整合完成！共生成 2 个【高信噪比】知识块(Chunks)。
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\v4\2_outputs\2_integrated\catalog_raw.json
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : --- 耗时: 0.02 s ---
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-22 19:51:05 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-22 19:51:06 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-22 19:51:06 [CRITI] [SmartReviewGene] : 
+
+!!! 💥 流水线发生致命错误 💥 !!!
+2025-11-22 19:51:06 [CRITI] [SmartReviewGene] : 错误详情: classify_chunk_content() got an unexpected keyword argument 'classifier_prompt_templates'
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\src\orchestrator.py", line 126, in run_pipeline
+    run_classification()
+  File "C:\Users\13081\Desktop\v4\src\agent\agent_classifier.py", line 124, in run_classification
+    content_type = classify_chunk_content(client, content, classifier_prompt_templates=prompts['classifier_prompt'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: classify_chunk_content() got an unexpected keyword argument 'classifier_prompt_templates'
+2025-11-22 19:51:06 [ERROR] [SmartReviewGene] : 任务 [c41b80cf-9b97-4210-801e-b0bce6a76632] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\v4\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-22 19:51:06 [INFO ] [SmartReviewGene] : 任务 [c41b80cf-9b97-4210-801e-b0bce6a76632] 输入临时文件已清理
+2025-11-22 21:32:44 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-22 21:32:44 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建

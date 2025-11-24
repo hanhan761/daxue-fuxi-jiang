@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- [图谱升级] 更改了页面标题 -->
+    <title>大学复习酱 - 智能复习</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <div class="container">
+                <!-- [图谱升级] 更改了 Logo 文本 -->
+                <a href="#/" class="logo">大学复习酱</a>
+                <nav class="main-nav">
+                    <a href="#/" class="nav-link">主页</a>
+                    <a href="#/stats" class="nav-link">统计</a>
+                </nav>
+                <input type="file" id="import-file-input" class="hidden" accept=".json">
+            </div>
+        </header>
+
+        <main id="main-content" class="container">
+            <!-- App.js 将在此处渲染内容 -->
+        </main>
+
+        <footer class="app-footer">
+            <div class="container">
+                <p>有bug请提交给我，vx:syh1308199824</p>
+            </div>
+        </footer>
+
+        <!-- 模态弹窗 (Modal) 结构 -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3 id="modal-title">模态框标题</h3>
+                <div id="modal-body">
+                    <p>模态框内容...</p>
+                </div>
+                <div class="modal-actions">
+                    <button id="modal-btn-cancel" class="btn btn-secondary">取消</button>
+                    <button id="modal-btn-confirm" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 始终最后加载 app.js -->
+    <script src="app.js"></script>
+</body>
+</html>

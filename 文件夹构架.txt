@@ -1,0 +1,33 @@
+# 文件夹构架说明
+
+## 1_inputs
+- books: 书籍数据
+- outlines: 大纲数据
+- past_papers: 过去试卷
+- ppts: PPT文件
+
+## 2_outputs
+- 1_preprocessed: 预处理数据
+- 2_integrated: 集成数据
+- 3_classified: 分类数据
+- 4_parsed: 解析数据
+- 4_5_unified: 统一数据
+- 5_final: 最终结果
+- 6_graph_relations: 图形关系
+
+## configs
+- fonts: 字体文件
+- .env: 环境变量
+- agent_prompts.yaml: 智能体提示
+- settings.py: 设置文件
+
+## data
+- 数据文件
+
+## logs
+- 日志文件
+
+## src
+- agent: 智能体模块
+- utils: 工具模块
+- orchestrator.py: 协调器
