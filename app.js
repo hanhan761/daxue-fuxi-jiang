@@ -1576,6 +1576,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!ReviewEngine.currentNode) return;
             
             const topic = ReviewEngine.currentNode.title;
+            const content = ReviewEngine.currentNode.content || ""; // 获取知识点内容
             const apiToken = ConfigManager.getToken();
             
             if (!apiToken) {
@@ -1592,7 +1593,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        topic: topic,
+                        topic: {
+                            title: topic,
+                            content: content
+                        },
                         api_token: apiToken
                     })
                 });

@@ -3071,3 +3071,108 @@ ModuleNotFoundError: No module named 'yaml'
 }
 2025-11-25 18:18:30 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 以下哪项最准确地描述了“机构”在管理学中...
 2025-11-25 21:19:55 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 21:35:14 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 21:35:14 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 21:35:19 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 21:35:19 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 21:35:19 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 21:35:19 [ERROR] [SmartReviewGene] : ❌ 严重错误: 无法导入 smart_flow 模块。请检查 src/feiman/smart_flow/__init__.py 是否存在。详情: No module named 'src.feiman.smart_flow'
+2025-11-25 21:35:19 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 21:35:35 [ERROR] [SmartReviewGene] : ❌ 严重错误: 无法导入 smart_flow 模块。请检查 src/feiman/smart_flow/__init__.py 是否存在。详情: No module named 'src.feiman.smart_flow'
+2025-11-25 21:35:35 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机器'
+2025-11-25 21:35:35 [INFO ] [SmartReviewGene] : --- 启动: Smart Review 多智能体出题系统 (Topic: 机器) ---
+2025-11-25 21:35:37 [ERROR] [SmartReviewGene] : 流水线执行异常: 'NoneType' object is not callable
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\feiman\quiz_agent.py", line 71, in run_quiz_generation
+    result = run_smart_quiz_pipeline(client, topic_input, model_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+2025-11-25 21:35:37 [ERROR] [SmartReviewGene] : [费曼模式] 生成失败，Agent 返回 None
+2025-11-25 21:44:15 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 21:44:15 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 21:44:20 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 21:44:20 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 21:44:20 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 21:44:20 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 21:44:38 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机器'
+2025-11-25 21:44:38 [INFO ] [SmartReviewGene] : --- 启动: Smart Review 多智能体出题系统 (Topic: 机器) ---
+2025-11-25 21:44:38 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 21:44:39 [INFO ] [SmartReviewGene] : 🚀 正在调用 Smart Flow 流水线 (Model: deepseek-chat)...
+2025-11-25 21:45:04 [INFO ] [SmartReviewGene] : 🎉 生成成功！
+{
+  "question": "在一个智慧城市项目中，开发团队希望设计一个交通流量预测系统，该系统能够根据历史交通数据自动优化信号灯配时方案，从而减少拥堵。团队负责人提出采用一种技术，让系统能够从过去的交通模式中学习并不断改进预测准确度，而无需手动调整复杂的规则。请问，团队负责人所描述的技术最符合以下哪个概念的定义？",
+  "options": [
+    "C. 机器学习",
+    "B. 专家系统",
+    "A. 数据挖掘",
+    "D. 规则引擎"
+  ],
+  "answer": "C. 机器学习",
+  "analysis": "机器学习使系统能从数据中自动学习并改进，无需手动编程规则，符合题干描述。其他选项错误：专家系统依赖人工规则，数据挖掘侧重于发现模式而非持续学习，规则引擎基于固定规则执行，无法自动改进。"
+}
+2025-11-25 21:45:04 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 在一个智慧城市项目中，开发团队希望设计一...
+2025-11-25 22:20:34 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 22:20:34 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 22:20:39 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 22:20:39 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 22:20:39 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 22:20:39 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 22:20:59 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='专用零件'
+2025-11-25 22:20:59 [INFO ] [SmartReviewGene] : --- 启动: Smart Review 多智能体出题系统 (Topic: 专用零件) ---
+2025-11-25 22:20:59 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 22:21:01 [INFO ] [SmartReviewGene] : 🚀 正在调用 Smart Flow 流水线 (Model: deepseek-chat)...
+2025-11-25 22:22:37 [INFO ] [SmartReviewGene] : 🎉 生成成功！
+{
+  "question": "题目：某工厂需要为一条新型自动化装配线设计一个关键传动部件。该部件必须与现有生产线中的特定传感器和执行机构精确配合，以实现高速同步运动。如果设计团队选择采用一个能够与其他设备互换的标准化零件，可能会导致系统精度下降和故障率升高。请问，在这种情况下，为什么必须优先设计和制造专用零件而非通用零件？请从功能匹配和系统集成的角度分析。",
+  "options": [
+    "A. 专用零件能够根据特定传感器和执行机构的参数进行定制化设计，确保功能上的精确匹配",
+    "B. 专用零件可以降低材料成本，因为它通常采用更廉价的原材料",
+    "C. 专用零件能够简化生产线布局，减少所需设备的数量",
+    "D. 专用零件可以加快生产速度，因为它不需要复杂的安装调试过程"
+  ],
+  "answer": "A. 专用零件能够根据特定传感器和执行机构的参数进行定制化设计，确保功能上的精确匹配",
+  "analysis": "本题从功能匹配和系统集成的角度，分析在高速同步运动的自动化装配线中优先采用专用零件的必要性。\n\n**正确选项A的分析：** 专用零件是为特定设备或系统专门设计和制造的，能够根据具体传感器和执行机构的性能参数（如尺寸、公差、动态响应特性）进行定制。在该情境中，装配线需要实现高速同步运动，这就要求传动部件与现有设备在功能上高度匹配，例如确保运动精度、减少响应延迟。专用零件通过定制化设计，能够直接满足这些特定需求，从而保障系统集成的整体效率和可靠性，避免因不匹配导致的精度下降或故障。\n\n**错误选项B的分析：** 选项B错误地认为专用零件能降低材料成本，但实际上，专用零件往往因定制化生产而成本较高，使用廉价原材料可能反而影响性能。题干强调避免精度下降和故障率升高，而非成本问题，因此该选项与情境需求不符。\n\n**错误选项C的分析：** 选项C提到专用零件能简化生产线布局并减少设备数量，但题干未涉及布局或设备数量的优化，而是聚焦于功能匹配和系统集成。专用零件的主要优势在于精确配合，而非简化结构，该选项偏离了核心分析角度。\n\n**错误选项D的分析：** 选项D主张专用零件能加快生产速度且无需复杂调试，然而专用零件在初始阶段可能需要更精细的安装和调试以确保匹配性，题干已指出通用零件可能导致故障率升高，这反衬出专用零件更注重长期可靠性而非短期速度提升。\n\n**涉及知识点：** 专用零件与通用零件的区别在于，专用零件针对特定系统设计，能实现更优的功能匹配和系统集成，适用于高精度、高可靠性的场景；而通用零件强调互换性，可能牺牲定制化性能。在自动化系统中，优先选择专用零件有助于避免兼容性问题，确保整体运行稳定。"
+}
+2025-11-25 22:22:37 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 题目：某工厂需要为一条新型自动化装配线设...
+2025-11-25 22:58:57 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 22:58:57 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 22:59:04 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 22:59:04 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 22:59:04 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 22:59:04 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 22:59:31 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='{'title': '现代机器的组成', 'content': '驱动部分、传动部分、执行部分、协调控制部分。'}'
+2025-11-25 22:59:31 [INFO ] [SmartReviewGene] : --- 启动: Smart Review 多智能体出题系统 (Title: 现代机器的组成) ---
+2025-11-25 22:59:31 [INFO ] [SmartReviewGene] :     (包含背景内容，长度: 22 字符)
+2025-11-25 22:59:31 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 22:59:32 [INFO ] [SmartReviewGene] : 🚀 正在调用 Smart Flow 流水线 (Model: deepseek-chat)...
+2025-11-25 22:59:32 [ERROR] [SmartReviewGene] : 流水线内部发生错误: run_smart_quiz_pipeline() got an unexpected keyword argument 'title'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\feiman\quiz_agent.py", line 120, in run_quiz_generation
+    result = run_smart_quiz_pipeline(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: run_smart_quiz_pipeline() got an unexpected keyword argument 'title'
+2025-11-25 22:59:32 [ERROR] [SmartReviewGene] : [费曼模式] 生成失败，Agent 返回 None
+2025-11-25 23:01:35 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 23:01:35 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 23:01:39 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 23:01:39 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 23:01:39 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 23:01:39 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 23:01:53 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='{'title': '机构', 'content': '能够用来传递运动和力或改变运动形式的多件实物的组合体'}'
+2025-11-25 23:01:53 [INFO ] [SmartReviewGene] : --- 启动: Smart Review 多智能体出题系统 (Title: 机构) ---
+2025-11-25 23:01:53 [INFO ] [SmartReviewGene] :     (包含背景内容，长度: 26 字符)
+2025-11-25 23:01:53 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 23:01:54 [INFO ] [SmartReviewGene] : 🚀 正在调用 Smart Flow 流水线 (Model: deepseek-chat)...
+2025-11-25 23:02:58 [INFO ] [SmartReviewGene] : 🎉 生成成功！
+{
+  "question": "题目：在机械工程中，一个系统由多个刚性构件通过铰链连接，能够将输入轴的旋转运动转换为输出轴的直线往复运动。假设该系统在运行中，输入轴以恒定角速度旋转，但输出轴的运动出现了周期性波动。根据机构的定义，如果该系统被设计为传递运动和力并改变运动形式，那么导致输出运动波动的最可能根本原因是什么？",
+  "options": [
+    "A. 输入轴的角速度不稳定",
+    "B. 输出轴的材料疲劳",
+    "C. 构件连接处的间隙或磨损",
+    "D. 系统未施加足够的润滑"
+  ],
+  "answer": "C. 构件连接处的间隙或磨损",
+  "analysis": "正确选项是C，因为机构中构件连接处的间隙或磨损会导致运动传递不平稳，引起输出轴的周期性波动，这符合机械工程中常见的设计缺陷。A错在输入轴以恒定角速度旋转，角速度不稳定不是原因；B错在材料疲劳通常导致长期失效，而非周期性波动；D错在润滑不足可能加剧磨损，但不是波动的最根本原因。知识点：机构是传递运动和力或改变运动形式的实物组合，其性能受连接精度影响，间隙或磨损会破坏运动平稳性。"
+}
+2025-11-25 23:02:58 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 题目：在机械工程中，一个系统由多个刚性构...
