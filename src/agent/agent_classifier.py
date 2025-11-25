@@ -22,9 +22,12 @@ VALID_TYPES = {"DEFINITION", "FORMULA", "CODE_EXAMPLE", "GENERAL"}
 
 
 def load_prompts():
+    logger.info(f"[DEBUG] 正在加载提示词文件: {settings.PROMPTS_FILE}")
     try:
         with open(settings.PROMPTS_FILE, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f)
+            data = yaml.safe_load(f)
+            logger.info("[DEBUG] 提示词文件加载成功。")
+            return data
     except Exception as e:
         logger.error(f"错误：加载 Prompts 文件失败: {e}", exc_info=True)
         return None
@@ -33,13 +36,22 @@ def load_prompts():
 def get_api_client():
     """初始化 API 客户端 (动态获取 Token)"""
     try:
-        # 🌟 [关键修改] 优先从 os.environ 获取，确保拿到的是 server.py 刚刚注入的 Token
-        # 只有当环境变量为空时，才回退到 settings 中的配置
-        current_api_key = os.environ.get("DEEPSEEK_API_KEY") or getattr(settings, "DEEPSEEK_API_KEY", "")
+        # 🌟 [关键修改] 优先从 os.environ 获取
+        current_api_key = os.environ.get("DEEPSEEK_API_KEY")
+        source = "环境变量 (os.environ)"
+        
+        if not current_api_key:
+            current_api_key = getattr(settings, "DEEPSEEK_API_KEY", "")
+            source = "配置文件 (settings)"
         
         if not current_api_key:
             logger.error("CRITICAL: 未检测到 API Key。请在前端输入 Token。")
             return None
+
+        # [DEBUG] 打印 API Key 信息 (脱敏)
+        masked_key = current_api_key[:8] + "***" + current_api_key[-4:] if len(current_api_key) > 12 else "***"
+        logger.info(f"[DEBUG] API 客户端初始化中... 来源: {source}, Key: {masked_key}")
+        logger.info(f"[DEBUG] API Base URL: {settings.DEEPSEEK_BASE_URL}")
 
         client = OpenAI(
             api_key=current_api_key,
@@ -53,9 +65,14 @@ def get_api_client():
 
 def classify_chunk_content(client: OpenAI, content: str, prompt_templates: dict) -> str:
     if not content or not prompt_templates:
+        logger.warning("[DEBUG] 内容为空或模板为空，跳过分类，默认为 GENERAL")
         return "GENERAL"
 
     try:
+        # [DEBUG] 打印当前正在处理的内容片段
+        snippet = content[:50].replace('\n', ' ')
+        logger.info(f"[DEBUG] >>> 请求 API 分类片段: '{snippet}...'")
+
         system_prompt = prompt_templates['system']
         user_prompt = prompt_templates['user'].format(text_content=content[:4000])
 
@@ -72,9 +89,13 @@ def classify_chunk_content(client: OpenAI, content: str, prompt_templates: dict)
 
         result = response.choices[0].message.content.strip().upper()
 
+        # [DEBUG] 打印 API 原始返回结果
+        logger.info(f"[DEBUG] <<< API 响应内容: [{result}]")
+
         if result in VALID_TYPES:
             return result
         else:
+            logger.warning(f"[DEBUG] API 返回类型 '{result}' 不在合法列表中 {VALID_TYPES}，归类为 GENERAL")
             return "GENERAL"
 
     except Exception as e:
@@ -88,6 +109,9 @@ def run_classification():
 
     input_file = settings.OUTPUT_INTEGRATED / 'catalog_raw.json'
     output_file = settings.OUTPUT_CLASSIFIED / 'catalog_smart.json'
+
+    logger.info(f"[DEBUG] 输入文件路径: {input_file}")
+    logger.info(f"[DEBUG] 输出文件路径: {output_file}")
 
     if not input_file.exists():
         logger.error(f"错误：找不到“哑”目录文件 '{input_file}'。")
@@ -109,6 +133,7 @@ def run_classification():
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             catalog_raw = json.load(f)
+        logger.info(f"[DEBUG] 成功读取 Raw Catalog，共包含 {len(catalog_raw)} 个块。")
     except Exception as e:
         logger.error(f"错误：读取 {input_file} 失败: {e}")
         return
@@ -119,11 +144,24 @@ def run_classification():
 
     catalog_smart = []
 
-    for chunk in tqdm(catalog_raw, desc="智能分类进度"):
+    # 使用 tqdm 显示进度，同时内部会打印 debug 信息
+    for i, chunk in enumerate(tqdm(catalog_raw, desc="智能分类进度")):
         content = chunk.get('content')
-        content_type = classify_chunk_content(client, content, classifier_prompt_templates=prompts['classifier_prompt'])
+        
+        # [Fix] 修正了参数名: 原代码是 classifier_prompt_templates，定义是 prompt_templates
+        # 这里改为 prompt_templates 以匹配函数定义
+        content_type = classify_chunk_content(
+            client, 
+            content, 
+            prompt_templates=prompts['classifier_prompt']
+        )
+        
         smart_chunk = {**chunk, "content_type": content_type}
         catalog_smart.append(smart_chunk)
+        
+        # [DEBUG] 每处理 5 个打印一次当前状态，防止刷屏太快，但又能看到进度
+        if (i + 1) % 5 == 0:
+            logger.info(f"[DEBUG] 已处理 {i + 1}/{len(catalog_raw)} 个块...")
 
     try:
         output_file.parent.mkdir(parents=True, exist_ok=True)

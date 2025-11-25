@@ -1449,3 +1449,1474 @@ Exception: Pipeline 执行失败，请检查后端日志
 2025-11-22 19:51:06 [INFO ] [SmartReviewGene] : 任务 [c41b80cf-9b97-4210-801e-b0bce6a76632] 输入临时文件已清理
 2025-11-22 21:32:44 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
 2025-11-22 21:32:44 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 16:14:41 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 16:14:41 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : >>> [任务 d6070ff9-477e-41ab-865e-3aad721111d2] 收到生成请求
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : ===   🚀 Smart Review 知识库生成流水线 启动   ===
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 输入源: C:\Users\13081\Desktop\大学复习酱\temp_uploads\d6070ff9-477e-41ab-865e-3aad721111d2
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 1_preprocessed
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 2_integrated
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 3_classified
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4_parsed
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 4.5_unified
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] :     - 已删除目录: 5_final
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : ...环境准备就绪。
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : 
+--- [1/6] 运行【预处理器】 ---
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\大学复习酱\temp_uploads\d6070ff9-477e-41ab-865e-3aad721111d2
+2025-11-24 16:15:08 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个新文件需要处理。
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : --- 耗时: 49.72 s ---
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 
+--- [2/6] 运行【整合者】 ---
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 将只保留以下元素类型: {'Title', 'NarrativeText', 'Formula', 'Table', 'Text', 'ListItem'}
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 整合完成！共生成 84 个【高信噪比】知识块(Chunks)。
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : --- 耗时: 0.08 s ---
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : 
+--- [3/6] 运行【智能分类器】 ---
+2025-11-24 16:15:58 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 16:16:00 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 16:16:00 [CRITI] [SmartReviewGene] : 
+
+!!! 💥 流水线发生致命错误 💥 !!!
+2025-11-24 16:16:00 [CRITI] [SmartReviewGene] : 错误详情: classify_chunk_content() got an unexpected keyword argument 'classifier_prompt_templates'
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\大学复习酱\src\orchestrator.py", line 126, in run_pipeline
+    run_classification()
+  File "C:\Users\13081\Desktop\大学复习酱\src\agent\agent_classifier.py", line 124, in run_classification
+    content_type = classify_chunk_content(client, content, classifier_prompt_templates=prompts['classifier_prompt'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: classify_chunk_content() got an unexpected keyword argument 'classifier_prompt_templates'
+2025-11-24 16:16:00 [ERROR] [SmartReviewGene] : 任务 [d6070ff9-477e-41ab-865e-3aad721111d2] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\大学复习酱\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-24 16:16:00 [INFO ] [SmartReviewGene] : 任务 [d6070ff9-477e-41ab-865e-3aad721111d2] 输入临时文件已清理
+2025-11-24 16:46:11 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 16:46:11 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 16:46:11 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 16:46:17 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-24 16:46:17 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-24 16:46:17 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : >>> [任务 7d213951-d9c3-41c1-aee4-51b020a2289e] 收到生成请求
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 16:46:34
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\7d213951-d9c3-41c1-aee4-51b020a2289e
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 1 个
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\大学复习酱\temp_uploads\7d213951-d9c3-41c1-aee4-51b020a2289e
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个文件需要处理。
+2025-11-24 16:46:34 [INFO ] [SmartReviewGene] :   [待处理示例 1] RL-.pptx
+2025-11-24 16:46:36 [INFO ] [SmartReviewGene] :   -> [Stats] 解析成功 RL-.pptx | 元素总数: 4 | 类型分布: {'Title': 3, 'PageBreak': 1}
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 2.95 s | 产出文件: 1 个
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 配置检查: 将只保留以下元素类型: {'Text', 'Table', 'Title', 'NarrativeText', 'Formula', 'ListItem'}
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :   [示例文件 1]: RL-.json
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :   [Page 1] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 准备写入输出文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 总 Chunk 数量: 2
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 整合完成！共生成 2 个【高信噪比】知识块(Chunks)。
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.03 s | 产出文件: 1 个
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载提示词文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] 提示词文件加载成功。
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 16:46:37 [INFO ] [SmartReviewGene] : [DEBUG] API Base URL: https://api.deepseek.com
+2025-11-24 16:46:39 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 16:46:39 [INFO ] [SmartReviewGene] : [DEBUG] 成功读取 Raw Catalog，共包含 2 个块。
+2025-11-24 16:46:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: 'RL-三角网络结构晶胞结构设计开发日志  沈玉涵...'
+2025-11-24 16:46:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:46:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '思路...'
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : 分类完成！共处理 2 个知识块。
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 5.59 s | 产出文件: 1 个
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] 读取目录文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载 Prompts 文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] Prompts 加载成功。
+2025-11-24 16:46:43 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 16:46:44 [INFO ] [SmartReviewGene] : [DEBUG] 配置参数: DEF模型=deepseek-chat, FORM模型=deepseek-chat, 线程数=1
+2025-11-24 16:46:44 [INFO ] [SmartReviewGene] : [DEBUG] 已加载 2 个待处理块。
+2025-11-24 16:46:44 [INFO ] [SmartReviewGene] : [DEBUG] 开始启动线程池...
+2025-11-24 16:46:44 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: 'RL-三角网络结构晶胞结构设计开发日志  沈玉涵...'
+2025-11-24 16:46:46 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:46:46 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '思路...'
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : 解析完成！生成 0 个条目。
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : 保存至: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] :     ✅ [完成] 解析耗时: 4.06 s | 产出文件: 0 个
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : 
+>>> [5/6] 启动【统一器 (Unifier)】
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] :     -> 目标: 统一格式标准 -> 4.5_unified
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : ===   🧠 步骤 4.5: 统一 (Unifying) 启动   ===
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:46:47 [INFO ] [SmartReviewGene] : 💾 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🤖 使用模型: deepseek-chat
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧵 线程池大小: 1
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 
+>>> [阶段 1/3] 扫描文件与建立映射...
+2025-11-24 16:46:49 [WARNI] [SmartReviewGene] : ⚠️  未找到任何已解析的 JSON 文件，流程结束。
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     ✅ [完成] 统一耗时: 1.69 s | 产出文件: 0 个
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 
+>>> [6/6] 启动【打包器 (Merger)】
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> 目标: 生成最终 JSON 知识库 -> 5_final
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : ===    📦 步骤 6: 打包 (Merging) 启动    ===
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 💾 输出路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🔍 正在递归扫描 .json 文件...
+2025-11-24 16:46:49 [WARNI] [SmartReviewGene] : ⚠️  警告: 在 C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified 中未找到任何 .json 文件。
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🛑 打包流程提前结束 (无数据)。
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     ✅ [完成] 打包耗时: 0.01 s
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在启动中间过程文件清理程序...
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :   -> [Step 1/5] 清理: 1_preprocessed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :   -> [Step 2/5] 清理: 2_integrated
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :   -> [Step 3/5] 清理: 3_classified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :   -> [Step 4/5] 清理: 4_parsed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :   -> [Step 5/5] 清理: 4.5_unified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : ✅ [收尾] 中间文件清理完毕
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : ===    ✅ 流水线全部执行完毕 (SUCCESS)    ===
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 14.39 秒
+2025-11-24 16:46:49 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到最终文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] :    OUTPUT_FINAL 目录内容: []
+2025-11-24 16:46:49 [ERROR] [SmartReviewGene] : 任务 [7d213951-d9c3-41c1-aee4-51b020a2289e] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\大学复习酱\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-24 16:46:49 [INFO ] [SmartReviewGene] : 任务 [7d213951-d9c3-41c1-aee4-51b020a2289e] 输入临时文件已清理
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : >>> [任务 706f5f04-b249-423d-83c5-72371a796fc3] 收到生成请求
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 16:51:00
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\706f5f04-b249-423d-83c5-72371a796fc3
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 1 个
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目录不存在，跳过: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目录不存在，跳过: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目录不存在，跳过: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目录不存在，跳过: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目录不存在，跳过: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) ---
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 正在扫描输入目录 (递归): C:\Users\13081\Desktop\大学复习酱\temp_uploads\706f5f04-b249-423d-83c5-72371a796fc3
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个文件需要处理。
+2025-11-24 16:51:00 [INFO ] [SmartReviewGene] :   [待处理示例 1] RL-mattergpt.pptx
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   -> [Stats] 解析成功 RL-mattergpt.pptx | 元素总数: 56 | 类型分布: {'Title': 47, 'PageBreak': 9}
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 完成: 预处理。成功处理 1/1 个文件。
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 所有输出均已保存到 C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 0.38 s | 产出文件: 1 个
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) ---
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 配置检查: 将只保留以下元素类型: {'Text', 'Table', 'Title', 'NarrativeText', 'Formula', 'ListItem'}
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 正在扫描预处理目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个预处理文件准备整合。
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [示例文件 1]: RL-mattergpt.json
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 1] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 2] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 3] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 4] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 5] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 6] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 7] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 8] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :   [Page 9] 过滤掉 1 个元素, 类型包括: ['PageBreak']
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 准备写入输出文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 总 Chunk 数量: 10
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 整合完成！共生成 10 个【高信噪比】知识块(Chunks)。
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : “哑”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 完成: 整合。
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.03 s | 产出文件: 1 个
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载提示词文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] 提示词文件加载成功。
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 16:51:01 [INFO ] [SmartReviewGene] : [DEBUG] API Base URL: https://api.deepseek.com
+2025-11-24 16:51:02 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 16:51:02 [INFO ] [SmartReviewGene] : [DEBUG] 成功读取 Raw Catalog，共包含 10 个块。
+2025-11-24 16:51:02 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: 'RL-mattergpt开发日志  沈玉涵  王盛白...'
+2025-11-24 16:51:04 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:04 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '目前已经有了  55w条结构数据 5k条定向数据  成功的基于字符串transformer的强化学习...'
+2025-11-24 16:51:05 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:05 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '数据收集-标准  专注于三维（3D）无机固态材料的数据库  研究重点是原子序数不超过86的元素  高...'
+2025-11-24 16:51:06 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 16:51:06 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '数据收集-tar  最终用Google的数据，55w条数据，已经收集...'
+2025-11-24 16:51:07 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:07 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '模型架构  方差  mace  chgnet  其他...'
+2025-11-24 16:51:08 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:08 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 5/10 个块...
+2025-11-24 16:51:08 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: 'deepseek  奖励函数模块  GPRO  多元化  有效性  用decode的成功与否给予奖励...'
+2025-11-24 16:51:10 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:10 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '定向性模块  数据加载  模型和思路以及代码都很成熟  待迁移和兼容  权重训练  权重保存  加载...'
+2025-11-24 16:51:11 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:11 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '有效性模块  检验有效性  转化为cif...'
+2025-11-24 16:51:12 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:12 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '强化学习类似项目（可迁移）...'
+2025-11-24 16:51:13 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:13 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: 'IDEA  slices性质预测 bert  如果说一条一条的强化学习流程太慢，能否批量进行强化学习...'
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 10/10 个块...
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : 分类完成！共处理 10 个知识块。
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 13.81 s | 产出文件: 1 个
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: 多线程模式] ---
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] 读取目录文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载 Prompts 文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] Prompts 加载成功。
+2025-11-24 16:51:14 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 16:51:16 [INFO ] [SmartReviewGene] : [DEBUG] 配置参数: DEF模型=deepseek-chat, FORM模型=deepseek-chat, 线程数=1
+2025-11-24 16:51:16 [INFO ] [SmartReviewGene] : [DEBUG] 已加载 10 个待处理块。
+2025-11-24 16:51:16 [INFO ] [SmartReviewGene] : [DEBUG] 开始启动线程池...
+2025-11-24 16:51:16 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: 'RL-mattergpt开发日志  沈玉涵  王盛白...'
+2025-11-24 16:51:17 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:17 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '目前已经有了  55w条结构数据 5k条定向数据  成功的基于字符串transformer的强化学习...'
+2025-11-24 16:51:18 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:18 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '数据收集-标准  专注于三维（3D）无机固态材料的数据库  研究重点是原子序数不超过86的元素  高...'
+2025-11-24 16:51:22 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): [
+  {"title": "该数据库专注于什么类型的材料？", "content": "专注于三维无机固态材料的数据库。"},
+  {"title": "研究重点涉及哪些元素？", "content...
+2025-11-24 16:51:22 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '数据收集-tar  最终用Google的数据，55w条数据，已经收集...'
+2025-11-24 16:51:23 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:23 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '模型架构  方差  mace  chgnet  其他...'
+2025-11-24 16:51:24 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:24 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: 'deepseek  奖励函数模块  GPRO  多元化  有效性  用decode的成功与否给予奖励...'
+2025-11-24 16:51:30 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): [
+  {"title": "什么是奖励函数模块？", "content": "奖励函数模块用于评估生成结构的质量并给予相应奖励或惩罚。"},
+  {"title": "如何实现有效性奖励？", "c...
+2025-11-24 16:51:30 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '定向性模块  数据加载  模型和思路以及代码都很成熟  待迁移和兼容  权重训练  权重保存  加载...'
+2025-11-24 16:51:31 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:31 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '有效性模块  检验有效性  转化为cif...'
+2025-11-24 16:51:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: '强化学习类似项目（可迁移）...'
+2025-11-24 16:51:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 正在调用模型 [deepseek-chat] 解析内容: 'IDEA  slices性质预测 bert  如果说一条一条的强化学习流程太慢，能否批量进行强化学习...'
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : [DEBUG] <<< 模型返回原始文本 (前100字符): []
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : 解析完成！生成 7 个条目。
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : 保存至: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] :     ✅ [完成] 解析耗时: 20.18 s | 产出文件: 7 个
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : 
+>>> [5/6] 启动【统一器 (Unifier)】
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] :     -> 目标: 统一格式标准 -> 4.5_unified
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : ===   🧠 步骤 4.5: 统一 (Unifying) 启动   ===
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:35 [INFO ] [SmartReviewGene] : 💾 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:51:36 [INFO ] [SmartReviewGene] : 🤖 使用模型: deepseek-chat
+2025-11-24 16:51:36 [INFO ] [SmartReviewGene] : 🧵 线程池大小: 1
+2025-11-24 16:51:36 [INFO ] [SmartReviewGene] : 
+>>> [阶段 1/3] 扫描文件与建立映射...
+2025-11-24 16:51:36 [INFO ] [SmartReviewGene] : ✅ 扫描完成: 7 个文件，识别到 7 个标题。
+2025-11-24 16:51:36 [INFO ] [SmartReviewGene] : 
+>>> [阶段 2/3] 调用 LLM 进行语义分组...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ✅ 分组完成 (耗时 0.99s):
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    -> 发现 0 个聚合组 (涉及 0 个文件)
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    -> 剩余 7 个独立文件将直接通过。
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 
+>>> [阶段 3/3] 执行合成与迁移...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ℹ️  没有需要合成的组。
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 
+>>> [收尾] 复制未分组的独立文件...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ✅ 统一流程完成 (Success)
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 原始文件数: 7
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 聚合生成数: 0 (来自 0 个原文件)
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 直接复制数: 7
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 最终产出数: 7
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 2.75 秒
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     ✅ [完成] 统一耗时: 2.76 s | 产出文件: 7 个
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 
+>>> [6/6] 启动【打包器 (Merger)】
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> 目标: 生成最终 JSON 知识库 -> 5_final
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ===    📦 步骤 6: 打包 (Merging) 启动    ===
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 💾 输出路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🔍 正在递归扫描 .json 文件...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ✅ 扫描完成，共找到 7 个文件准备合并。
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🏷️  知识库名称: 自动生成的Smart Review知识库
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ⚙️  Schema版本: v2.0-generated
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🚀 开始合并数据...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📝 正在构建最终 JSON 文件...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ✅ 打包成功 (Success)
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 扫描文件: 7
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 成功合并: 7
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :    - 失败/跳过: 0
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📄 输出文件: Smart_Review_KB.json
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 💾 文件大小: 0.00 MB
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🔗 完整路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 0.01 秒
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 💡 提示: 你现在可以将此 JSON 文件直接拖入 'Smart Review' 前端进行导入。
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : === 📦 步骤 6: 打包 结束 ===
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     ✅ [完成] 打包耗时: 0.01 s
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在启动中间过程文件清理程序...
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :   -> [Step 1/5] 清理: 1_preprocessed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :   -> [Step 2/5] 清理: 2_integrated
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :   -> [Step 3/5] 清理: 3_classified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :   -> [Step 4/5] 清理: 4_parsed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :   -> [Step 5/5] 清理: 4.5_unified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ✅ [收尾] 中间文件清理完毕
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ===    ✅ 流水线全部执行完毕 (SUCCESS)    ===
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 37.23 秒
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 📄 最终产物: Smart_Review_KB.json
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 💾 文件大小: 0.00 MB
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 🔗 绝对路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 任务完成，返回 7 个节点
+2025-11-24 16:51:37 [INFO ] [SmartReviewGene] : 任务 [706f5f04-b249-423d-83c5-72371a796fc3] 输入临时文件已清理
+2025-11-24 17:09:06 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 17:09:06 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---
+2025-11-24 17:09:06 [INFO ] [SmartReviewGene] : 扫描完成，找到 3 个文件。
+2025-11-24 17:09:32 [INFO ] [SmartReviewGene] : 预处理完成。成功: 3/3
+2025-11-24 17:17:18 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 17:17:18 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) [V3: Sliding Window] ---
+2025-11-24 17:17:18 [INFO ] [SmartReviewGene] : 配置: 窗口大小=3页 (用于构建上下文)
+2025-11-24 17:17:18 [INFO ] [SmartReviewGene] : 整合完成！生成 100 个上下文块。
+2025-11-24 17:32:35 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 17:32:35 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 17:32:35 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 17:32:41 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-24 17:32:41 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-24 17:32:41 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : >>> [任务 571bafd0-b5b7-4ab5-b741-a29e247fa157] 收到生成请求
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 17:33:04
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\571bafd0-b5b7-4ab5-b741-a29e247fa157
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 1 个
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---
+2025-11-24 17:33:04 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个文件。
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : 预处理完成。成功: 1/1
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 25.94 s | 产出文件: 1 个
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) [V3: Sliding Window] ---
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : 配置: 窗口大小=3页 (用于构建上下文)
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : 整合完成！生成 89 个上下文块。
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.03 s | 产出文件: 1 个
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载提示词文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] 提示词文件加载成功。
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 17:33:30 [INFO ] [SmartReviewGene] : [DEBUG] API Base URL: https://api.deepseek.com
+2025-11-24 17:33:32 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 17:33:32 [INFO ] [SmartReviewGene] : [DEBUG] 成功读取 Raw Catalog，共包含 89 个块。
+2025-11-24 17:33:32 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 1] --- 文治学辅与发展中心  --- [Page 2] --- 文治学辅与...'
+2025-11-24 17:33:34 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:34 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 2] --- 文治学辅与发展中心 前言 近年来，随着各书院的学业辅导机构或组织的...'
+2025-11-24 17:33:35 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:35 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 3] --- 文治学辅与发展中心 目录 第1章 绪论.................'
+2025-11-24 17:33:36 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:36 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 4] --- 文治学辅与发展中心 三、平面四杆机构的基本特性.............'
+2025-11-24 17:33:37 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:37 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 5] --- 文治学辅与发展中心 四、渐开线标准直齿圆柱齿轮及其啮合传动.......'
+2025-11-24 17:33:39 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:39 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 5/89 个块...
+2025-11-24 17:33:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 6] --- 文治学辅与发展中心 8. 蜗杆结构： .................'
+2025-11-24 17:33:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 7] --- 文治学辅与发展中心 二、机械系统的速度波动及其调节...........'
+2025-11-24 17:33:41 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:41 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 8] --- 文治学辅与发展中心 2. 轴瓦的定位 .................'
+2025-11-24 17:33:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 9] --- 文治学辅与发展中心 3.正确选择轴承。 ................'
+2025-11-24 17:33:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 10] --- 文治学辅与发展中心 第 1 章 绪论 一、机械的组成 机械——人...'
+2025-11-24 17:33:44 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:44 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 10/89 个块...
+2025-11-24 17:33:44 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 11] --- 文治学辅与发展中心 第 2 章 机械设计概述 一、 概述 机械设...'
+2025-11-24 17:33:45 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:45 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 12] --- 文治学辅与发展中心 标准化：对零件的尺寸、结构要素、材料性能、检...'
+2025-11-24 17:33:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:47 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 13] --- 文治学辅与发展中心 第 3 章 机械运动设计与分析基础 一、 机...'
+2025-11-24 17:33:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 14] --- 文治学辅与发展中心 3. 空间运动副：螺旋副、球面（低）副、圆柱...'
+2025-11-24 17:33:49 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:49 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 15] --- 文治学辅与发展中心 4. 机动示意图（机构简图）： 与机构运动简...'
+2025-11-24 17:33:50 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:33:50 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 15/89 个块...
+2025-11-24 17:33:50 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 16] --- 文治学辅与发展中心 （4）公共约束——机构中所有构件共同受到的约...'
+2025-11-24 17:33:51 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:33:51 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 17] --- 文治学辅与发展中心 机构的瞬心数为𝐊 = 𝐂𝟐 = 𝐍(𝐍−𝟏)...'
+2025-11-24 17:33:52 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:33:52 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 18] --- 文治学辅与发展中心 第 6 章 平面连杆机构 一、 概述 连杆机...'
+2025-11-24 17:33:53 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:53 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 19] --- 文治学辅与发展中心 造型机翻箱机构，鹤式起重机。 等腰梯形机构：...'
+2025-11-24 17:33:54 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:54 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 20] --- 文治学辅与发展中心 （余弦机构：也称正弦机构，两移动副相邻，且一...'
+2025-11-24 17:33:56 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:33:56 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 20/89 个块...
+2025-11-24 17:33:56 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 21] --- 文治学辅与发展中心 应用：牛头刨床（摆动导杆）。 （2）摇块机构...'
+2025-11-24 17:33:57 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:33:57 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 22] --- 文治学辅与发展中心 条件）。 （2）连架杆和机架中必有一个是最短...'
+2025-11-24 17:33:58 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:33:58 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 23] --- 文治学辅与发展中心 Ⅰ型（A,D 在 C C 连线同侧）和Ⅱ型（...'
+2025-11-24 17:34:00 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:00 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 24] --- 文治学辅与发展中心 机构要连续运动，必须使设计的机构满足γ ≥[...'
+2025-11-24 17:34:01 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:01 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 25] --- 文治学辅与发展中心 ②实现连架杆的给定运动规律（汽车转向）。 ③...'
+2025-11-24 17:34:02 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:02 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 25/89 个块...
+2025-11-24 17:34:02 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 26] --- 文治学辅与发展中心 第 7 章 凸轮机构 一、概述 凸轮机构的组...'
+2025-11-24 17:34:03 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:34:03 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 27] --- 文治学辅与发展中心 滚动摩擦阻力小，承载能力大。 滚子轴处有间隙...'
+2025-11-24 17:34:04 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:04 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 28] --- 文治学辅与发展中心 3. 各个圆 基圆：以凸轮转动中心为圆心，理...'
+2025-11-24 17:34:07 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:34:07 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 29] --- 文治学辅与发展中心 （6）作压力角。受力方向（接触点法线）与运动...'
+2025-11-24 17:34:08 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:34:08 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 30] --- 文治学辅与发展中心 7. 从动件运动规律的选择原则： （1）降低...'
+2025-11-24 17:34:09 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:09 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 30/89 个块...
+2025-11-24 17:34:09 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 31] --- 文治学辅与发展中心 看例题、作业题、课后题。 五、凸轮机构的基本...'
+2025-11-24 17:34:10 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:10 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 32] --- 文治学辅与发展中心 2. 压力角的选取 ——接触点的法线（F）与...'
+2025-11-24 17:34:11 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:11 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 33] --- 文治学辅与发展中心 第 8 章 齿轮传动 一、概述 组成：主动轮...'
+2025-11-24 17:34:12 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:12 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 34] --- 文治学辅与发展中心 二、齿廓啮合基本定律 一对齿轮在任意位置时的...'
+2025-11-24 17:34:13 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:34:13 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 35] --- 文治学辅与发展中心 2. 渐开线方程（极坐标）： inva 称为...'
+2025-11-24 17:34:14 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:14 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 35/89 个块...
+2025-11-24 17:34:14 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 36] --- 文治学辅与发展中心 齿顶高 h ，齿根高 h，齿全高 h= h ...'
+2025-11-24 17:34:15 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:15 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 37] --- 文治学辅与发展中心 3.渐开线标准直齿圆柱齿轮基本参数×5： Z...'
+2025-11-24 17:34:16 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:16 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 38] --- 文治学辅与发展中心 重合度ε：实际啮合长度与基圆齿距的比值。 连...'
+2025-11-24 17:34:17 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:17 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 39] --- 文治学辅与发展中心 （重合度的计算公式：ε=[z (tgα -t...'
+2025-11-24 17:34:19 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:19 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 40] --- 文治学辅与发展中心 五、渐开线齿轮的加工方法及齿轮变位的概念 1...'
+2025-11-24 17:34:20 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:20 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 40/89 个块...
+2025-11-24 17:34:20 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 41] --- 文治学辅与发展中心 变位齿轮：通过改变刀具的相对位置加工出的齿轮...'
+2025-11-24 17:34:21 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:21 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 42] --- 文治学辅与发展中心 润滑油） （3）齿面磨损。（开式传动常见的失...'
+2025-11-24 17:34:22 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:22 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 43] --- 文治学辅与发展中心 轮）=HB2（大齿轮）+ 25~50HBS。...'
+2025-11-24 17:34:23 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:23 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 44] --- 文治学辅与发展中心 八、直齿圆柱齿轮的强度计算 1. 直齿圆柱齿...'
+2025-11-24 17:34:24 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:24 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 45] --- 文治学辅与发展中心 2. 直齿圆柱齿轮的应力计算（算 3个值） ...'
+2025-11-24 17:34:26 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:26 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 45/89 个块...
+2025-11-24 17:34:26 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 46] --- 文治学辅与发展中心 （2）齿面接触疲劳应力 选择节点处来计算接触...'
+2025-11-24 17:34:27 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:27 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 47] --- 文治学辅与发展中心 校核与设计公式： 对于动力传动齿轮，m≥1....'
+2025-11-24 17:34:28 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:28 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 48] --- 文治学辅与发展中心 第 9 章 蜗杆传动 一、概述 1. 组成：...'
+2025-11-24 17:34:29 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:29 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 49] --- 文治学辅与发展中心 蜗杆头数 z 一般取 1、2、4、6。 1 ...'
+2025-11-24 17:34:30 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:30 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 50] --- 文治学辅与发展中心 摩擦角，f 称为当量摩擦因数，均可按材料和 ...'
+2025-11-24 17:34:32 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:32 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 50/89 个块...
+2025-11-24 17:34:32 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 51] --- 文治学辅与发展中心 蜗杆轴装设溅油轮（溅油轮浸入油池，蜗杆不浸入...'
+2025-11-24 17:34:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 52] --- 文治学辅与发展中心 第 10 章 轮系（看例题、作业题，一定要答...'
+2025-11-24 17:34:34 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:34 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 53] --- 文治学辅与发展中心 周转轮系中转速的方向箭头用虚线表示（并不表示...'
+2025-11-24 17:34:35 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:35 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 54] --- 文治学辅与发展中心 第 11 章 带传动（与链传动） 一、概述 ...'
+2025-11-24 17:34:36 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:36 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 55] --- 文治学辅与发展中心 应用范围：传递功率不大，带速适中的场合。 平...'
+2025-11-24 17:34:37 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:37 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 55/89 个块...
+2025-11-24 17:34:37 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 56] --- 文治学辅与发展中心 （3）离心拉应力σ 。略。 c 每个固定横截...'
+2025-11-24 17:34:39 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 57] --- 文治学辅与发展中心 ΔP 为计入传动比影响时，单根 V带所能传递...'
+2025-11-24 17:34:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 58] --- 文治学辅与发展中心 第 12 章 其他传动类型简介（考概念、特点...'
+2025-11-24 17:34:41 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:41 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 59] --- 文治学辅与发展中心 2. 齿式棘轮机构的设计 （1）模数，按齿顶...'
+2025-11-24 17:34:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 60] --- 文治学辅与发展中心 ③ 槽数↑运动时间↑，为了缩短工艺辅助时间，...'
+2025-11-24 17:34:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:43 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 60/89 个块...
+2025-11-24 17:34:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 61] --- 文治学辅与发展中心 第 14 章 机械系统动力学 一、机械系统动...'
+2025-11-24 17:34:44 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:44 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 62] --- 文治学辅与发展中心 结合轮系！（例14-2，习题14-11） 分...'
+2025-11-24 17:34:46 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:46 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 63] --- 文治学辅与发展中心 振动。 三个方面：刚性转子的平衡、挠性转子的...'
+2025-11-24 17:34:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:47 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 64] --- 文治学辅与发展中心 第 15 章 螺纹连接 一、概述 螺纹连接：...'
+2025-11-24 17:34:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:34:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 65] --- 文治学辅与发展中心 3. 螺纹连接的类型 螺栓连接、螺钉连接、双...'
+2025-11-24 17:34:50 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:50 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 65/89 个块...
+2025-11-24 17:34:50 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 66] --- 文治学辅与发展中心 来控制预紧力，如采用测力矩扳手或定力矩扳手。...'
+2025-11-24 17:34:51 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:51 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 67] --- 文治学辅与发展中心 下扭转切应力的影响。 ①只受预紧力的紧螺栓连...'
+2025-11-24 17:34:52 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:52 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 68] --- 文治学辅与发展中心 𝐾 为螺纹牙受力不均匀系数，受压螺母时𝑲 =...'
+2025-11-24 17:34:53 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:53 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 69] --- 文治学辅与发展中心 （1）受轴向力 F 的螺栓组连接 Q F=F...'
+2025-11-24 17:34:54 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:54 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 70] --- 文治学辅与发展中心 （1）改善螺纹牙间载荷分配。 （2）减小螺栓...'
+2025-11-24 17:34:56 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:56 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 70/89 个块...
+2025-11-24 17:34:56 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 71] --- 文治学辅与发展中心 第 16 章 轴 一、概述 1. 按承载情况...'
+2025-11-24 17:34:57 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:57 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 72] --- 文治学辅与发展中心 开 1个键槽，轴径增大 3%~5%；开 2个...'
+2025-11-24 17:34:58 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:34:58 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 73] --- 文治学辅与发展中心 2. 轴的常用材料及热处理 轴的常用材料主要...'
+2025-11-24 17:34:59 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:34:59 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 74] --- 文治学辅与发展中心 ④轴的直径变化所形成的阶梯处称为轴肩或轴环。...'
+2025-11-24 17:35:00 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:00 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 75] --- 文治学辅与发展中心 a. 平键连接 两侧面为工作面，靠键与键槽两...'
+2025-11-24 17:35:03 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:35:03 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 75/89 个块...
+2025-11-24 17:35:03 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 76] --- 文治学辅与发展中心 面上挤压力和轴与毂孔间的摩擦力传递转矩（主要...'
+2025-11-24 17:35:04 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:04 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 77] --- 文治学辅与发展中心 材图） ③轴上不同轴段的键槽应布置在同一母线...'
+2025-11-24 17:35:05 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:05 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 78] --- 文治学辅与发展中心 第 17 章 轴承 一、概述 功用：用于支承...'
+2025-11-24 17:35:06 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:35:06 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 79] --- 文治学辅与发展中心 三、滑动轴承轴瓦结构 轴承体上采用轴瓦是为了...'
+2025-11-24 17:35:08 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:35:08 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 80] --- 文治学辅与发展中心 非液体润滑滑动轴承的工作能力计算： 1. 径...'
+2025-11-24 17:35:09 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:35:09 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 80/89 个块...
+2025-11-24 17:35:09 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 81] --- 文治学辅与发展中心 向心轴承主要用于承受径向载荷，其公称接触角范...'
+2025-11-24 17:35:10 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 17:35:10 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 82] --- 文治学辅与发展中心 4. 经济性。 优先球轴承。 5. 轴承的装...'
+2025-11-24 17:35:11 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:11 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 83] --- 文治学辅与发展中心 对向心轴承，径向额定静载荷 C 。 0r 对...'
+2025-11-24 17:35:13 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 17:35:13 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 84] --- 文治学辅与发展中心 轴向力确定方法：（重点） 压紧端，轴承轴向力...'
+2025-11-24 17:35:14 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:14 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 85] --- 文治学辅与发展中心 十一、轴承装置的结构设计 1. 滚动轴承组合...'
+2025-11-24 17:35:15 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:15 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 85/89 个块...
+2025-11-24 17:35:15 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 86] --- 文治学辅与发展中心 （2）装拆 基本原则：不允许通过滚动体传递装...'
+2025-11-24 17:35:16 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:16 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 87] --- 文治学辅与发展中心 第 18 章 联轴器和离合器 一、概述 区别...'
+2025-11-24 17:35:18 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:18 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 88] --- 文治学辅与发展中心 2. 摩擦式离合器 有单盘式离合器、多盘式离...'
+2025-11-24 17:35:19 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:19 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 89] --- 文治学辅与发展中心 轴系改错题知识点（如何改、为什么改）： 1....'
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : 分类完成！共处理 89 个知识块。
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 109.48 s | 产出文件: 1 个
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: Master Summary] ---
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载 Prompts 文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 17:35:20 [INFO ] [SmartReviewGene] : [DEBUG] Prompts 加载成功。
+2025-11-24 17:35:21 [INFO ] [SmartReviewGene] : 配置: 主模型=deepseek-chat, 线程数=1
+2025-11-24 17:35:21 [INFO ] [SmartReviewGene] : 开始处理 89 个上下文块 (Sliding Windows)...
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : 解析完成！生成 562 个知识节点。
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] :     ✅ [完成] 解析耗时: 3400.53 s | 产出文件: 562 个
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : 
+>>> [5/6] 启动【统一器 (Unifier)】
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] :     -> 目标: 统一格式标准 -> 4.5_unified
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : ===   🧠 步骤 4.5: 统一 (Unifying) 启动   ===
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 18:32:00 [INFO ] [SmartReviewGene] : 💾 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 18:32:02 [INFO ] [SmartReviewGene] : 🤖 使用模型: deepseek-chat
+2025-11-24 18:32:02 [INFO ] [SmartReviewGene] : 🧵 线程池大小: 1
+2025-11-24 18:32:02 [INFO ] [SmartReviewGene] : 
+>>> [阶段 1/3] 扫描文件与建立映射...
+2025-11-24 18:32:11 [INFO ] [SmartReviewGene] : ✅ 扫描完成: 562 个文件，识别到 462 个标题。
+2025-11-24 18:32:11 [INFO ] [SmartReviewGene] : 
+>>> [阶段 2/3] 调用 LLM 进行语义分组...
+2025-11-24 18:32:57 [INFO ] [SmartReviewGene] : ✅ 分组完成 (耗时 46.78s):
+2025-11-24 18:32:57 [INFO ] [SmartReviewGene] :    -> 发现 20 个聚合组 (涉及 119 个文件)
+2025-11-24 18:32:57 [INFO ] [SmartReviewGene] :    -> 剩余 443 个独立文件将直接通过。
+2025-11-24 18:32:57 [INFO ] [SmartReviewGene] : 
+>>> [阶段 3/3] 执行合成与迁移...
+2025-11-24 18:34:38 [ERROR] [SmartReviewGene] : ⚠️  合成 JSON 解析失败: 变位齿轮几何参数
+2025-11-24 18:37:55 [INFO ] [SmartReviewGene] : 
+>>> [收尾] 复制未分组的独立文件...
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ✅ 统一流程完成 (Success)
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :    - 原始文件数: 562
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :    - 聚合生成数: 19 (来自 119 个原文件)
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :    - 直接复制数: 443
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :    - 最终产出数: 462
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 356.80 秒
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :     ✅ [完成] 统一耗时: 356.81 s | 产出文件: 462 个
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 
+>>> [6/6] 启动【打包器 (Merger)】
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] :     -> 目标: 生成最终 JSON 知识库 -> 5_final
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ===    📦 步骤 6: 打包 (Merging) 启动    ===
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 💾 输出路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 🔍 正在递归扫描 .json 文件...
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ✅ 扫描完成，共找到 462 个文件准备合并。
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 🏷️  知识库名称: 自动生成的Smart Review知识库
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : ⚙️  Schema版本: v2.0-generated
+2025-11-24 18:37:57 [INFO ] [SmartReviewGene] : 🚀 开始合并数据...
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 📝 正在构建最终 JSON 文件...
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ✅ 打包成功 (Success)
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :    - 扫描文件: 462
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :    - 成功合并: 462
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :    - 失败/跳过: 0
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 📄 输出文件: Smart_Review_KB.json
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 💾 文件大小: 2.22 MB
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🔗 完整路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 2.84 秒
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 💡 提示: 你现在可以将此 JSON 文件直接拖入 'Smart Review' 前端进行导入。
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : === 📦 步骤 6: 打包 结束 ===
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :     ✅ [完成] 打包耗时: 2.85 s
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在启动中间过程文件清理程序...
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :   -> [Step 1/5] 清理: 1_preprocessed
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :   -> [Step 2/5] 清理: 2_integrated
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :   -> [Step 3/5] 清理: 3_classified
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] :   -> [Step 4/5] 清理: 4_parsed
+2025-11-24 18:38:00 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] :   -> [Step 5/5] 清理: 4.5_unified
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : ✅ [收尾] 中间文件清理完毕
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : ===    ✅ 流水线全部执行完毕 (SUCCESS)    ===
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 3896.94 秒
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : 📄 最终产物: Smart_Review_KB.json
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : 💾 文件大小: 2.22 MB
+2025-11-24 18:38:01 [INFO ] [SmartReviewGene] : 🔗 绝对路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 18:38:02 [INFO ] [SmartReviewGene] : 任务完成，返回 462 个节点
+2025-11-24 18:38:02 [INFO ] [SmartReviewGene] : 任务 [571bafd0-b5b7-4ab5-b741-a29e247fa157] 输入临时文件已清理
+2025-11-24 23:04:13 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 23:04:13 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 23:04:13 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:04:20 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-24 23:04:20 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-24 23:04:20 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:07:38 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 23:07:38 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 23:07:38 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:07:45 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-24 23:07:45 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-24 23:07:45 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : >>> [任务 8880ccd6-4e2c-4597-b96b-97708ff077e8] 收到生成请求
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 23:08:13
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\8880ccd6-4e2c-4597-b96b-97708ff077e8
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 2 个
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 23:08:13 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---
+2025-11-24 23:08:14 [INFO ] [SmartReviewGene] : 扫描完成，找到 2 个文件。
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : 预处理完成。成功: 2/2
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 7.49 s | 产出文件: 2 个
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) [V3: Sliding Window] ---
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : 配置: 窗口大小=3页 (用于构建上下文)
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : 整合完成！生成 70 个上下文块。
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.06 s | 产出文件: 1 个
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载提示词文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] 提示词文件加载成功。
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 23:08:21 [INFO ] [SmartReviewGene] : [DEBUG] API Base URL: https://api.deepseek.com
+2025-11-24 23:08:23 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 23:08:23 [INFO ] [SmartReviewGene] : [DEBUG] 成功读取 Raw Catalog，共包含 70 个块。
+2025-11-24 23:08:23 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 1] --- 文治学辅与发展中心 知 识 工程材料基础 梳 理 【第一版】 系 ...'
+2025-11-24 23:08:25 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:25 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 2] --- 前言 《工程材料基础》（以下简称工材）是西安交通大学机类专业学生必...'
+2025-11-24 23:08:26 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:26 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 3] --- v 1.0 编写小组成员 编写 能动 C71 吴家豪 编辑 能动 ...'
+2025-11-24 23:08:28 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:28 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 4] --- 目录 绪论 5 第1章 机械零件的失效形式及抗力指标 6 一 零件...'
+2025-11-24 23:08:29 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:29 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 5] --- 第6章 有色金属及其合金 45 一 铝及铝合金 . . . . ....'
+2025-11-24 23:08:30 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:30 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 5/70 个块...
+2025-11-24 23:08:30 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 6] --- 绪论 材料科学：研究所有固体材料的成分、组织和性能之间关系的一门科...'
+2025-11-24 23:08:31 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:31 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 7] --- 第一章 机械零件的失效形式及抗力指标 （零件功能：在一定压力，温度...'
+2025-11-24 23:08:32 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:32 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 8] --- 作。精密机床丝杠，不允许产生塑性变形，屈服强度。 钢铁材料的弹性模...'
+2025-11-24 23:08:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 9] --- 决定材料断裂类型的主要因素有： 加载方式、材料本质、温度、加载速度...'
+2025-11-24 23:08:34 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:34 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 10] --- 影响疲劳抗力的因素：载荷类型、材料本质、零件表面状态、温度、腐蚀...'
+2025-11-24 23:08:36 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:36 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 10/70 个块...
+2025-11-24 23:08:36 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 11] --- 3. 腐蚀磨损 在摩擦力和环境介质联合作用下，金属表层的腐蚀产物...'
+2025-11-24 23:08:37 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:37 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 12] --- 1. 化学腐蚀（以高温氧化腐蚀为主） 高温氧化过程：（1）金属失...'
+2025-11-24 23:08:38 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:38 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 13] --- ￿材料的强度随温度的升高而降低。 ￿高温下材料的强度随加载时间的...'
+2025-11-24 23:08:39 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 14] --- 第二章 碳钢 碳钢：是一种以Fe、C两种元素为主要成分的合金。 ...'
+2025-11-24 23:08:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 15] --- 纯铁的同素异构转变 δ-Fe(体心立方) 1←394→oC γ-...'
+2025-11-24 23:08:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:42 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 15/70 个块...
+2025-11-24 23:08:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 16] --- 产生了晶格畸变。与基体金属相比，固溶体的强度硬度升高，其塑性韧性...'
+2025-11-24 23:08:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 17] --- 心 中 展 发 ￿碳在铁中最大溶解度点： P（0.0218，72...'
+2025-11-24 23:08:44 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:44 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 18] --- （2）恒温转变 ￿包晶转变HJB：δ +L →γ （1495℃）...'
+2025-11-24 23:08:46 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 23:08:46 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 19] --- ￿工业纯铁0.01 L −匀−晶→δ−同−素−异−→构 γ −同...'
+2025-11-24 23:08:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 23:08:47 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 20] --- ￿共晶白口铸铁4.3%： L −共−晶→Ld−共−晶−−γ−析−...'
+2025-11-24 23:08:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:48 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 20/70 个块...
+2025-11-24 23:08:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 21] --- 对力学性能的影响： 铁素体(F)：固溶体，软而韧；渗碳体(Fe ...'
+2025-11-24 23:08:49 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:49 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 22] --- （1）氢： ￿引起氢脆，在钢中产生裂纹，降低钢的塑性韧性；￿容易...'
+2025-11-24 23:08:50 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:50 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 23] --- 不利：冷冲压件的制耳现象。 （4）产生残余应力，使零件尺寸不稳定...'
+2025-11-24 23:08:51 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:51 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 24] --- 命。 七 碳钢的分类和牌号 按含碳量分类：低碳钢≤0.25％，中...'
+2025-11-24 23:08:52 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:52 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 25] --- 第三章 钢的热处理 钢的热处理：通过对钢件（金属）进行加热、保温...'
+2025-11-24 23:08:53 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:53 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 25/70 个块...
+2025-11-24 23:08:53 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 26] --- 2.1 过冷奥氏体等温转变图 孕育期：珠光体开始转变对应的时间。...'
+2025-11-24 23:08:56 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:56 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 27] --- (3) 马氏体转变 孕育期短到难以测出→必须继续降低温度才有新的...'
+2025-11-24 23:08:57 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:08:57 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 28] --- 2.3 奥氏体连续冷却转变图 CCT 图（了解） 与“C”曲线相...'
+2025-11-24 23:08:58 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:08:58 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 29] --- 组织：获得球状 P 球。（片状珠光体硬度高，不适合加工；球状珠光...'
+2025-11-24 23:09:00 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:00 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 30] --- 测定方法： ￿ 临界直径法。在相同淬火介质中，D0越大，钢的淬透...'
+2025-11-24 23:09:01 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:01 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 30/70 个块...
+2025-11-24 23:09:01 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 31] --- 生产上将淬火+高温回火称为调质处理。 一般规律：回火温度升高，强...'
+2025-11-24 23:09:02 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:02 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 32] --- 提高工件表层的碳含量，使工件经热处理之后表面具有高的硬度和耐磨性...'
+2025-11-24 23:09:03 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:03 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 33] --- 第四章 合金钢 一 概述 碳钢优点：冶炼工艺较简单，成本低，压力...'
+2025-11-24 23:09:04 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:04 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 34] --- 1.3 使钢具有特殊性能 抗腐蚀性能（不锈钢）、抗高温氧化性能（...'
+2025-11-24 23:09:06 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:06 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 35] --- 2.2 合金渗碳钢 典型牌号：20CrMnTi，20CrMnMo...'
+2025-11-24 23:09:07 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:07 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 35/70 个块...
+2025-11-24 23:09:07 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 36] --- 成分：Wc0.45—0.70%，多数0.6%（中、高碳）。合金元...'
+2025-11-24 23:09:08 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:08 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 37] --- 成分：高碳Wc为0.85-0.95%。合金元素：Si,Cr,Mn...'
+2025-11-24 23:09:10 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:10 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 38] --- 热疲劳抗力;高导热。 典型牌号：5CrNiMo（中碳合金工具钢）...'
+2025-11-24 23:09:11 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:11 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 39] --- 用零构件等，如硝酸吸收塔、磷酸槽等。 (3) 奥氏体不锈钢(奥氏...'
+2025-11-24 23:09:12 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:12 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 40] --- (3) 奥氏体型耐热钢典型牌号：07Cr19Ni11Ti,16C...'
+2025-11-24 23:09:13 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:13 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 40/70 个块...
+2025-11-24 23:09:13 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 41] --- 第五章 铸铁 白口铸铁性能脆硬，工业很少应用。 铸铁是含碳量wc...'
+2025-11-24 23:09:14 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:14 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 42] --- ￿ 从液相中直接析出一次石墨G 。L −→ G (Wc > 4....'
+2025-11-24 23:09:15 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:15 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 43] --- ￿ 灰口铸铁。石墨化程度最高，断口呈灰色。 ￿ 白口铸铁。无石墨...'
+2025-11-24 23:09:16 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:16 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 44] --- (3) 可锻铸铁成分：C：2.4—2.8%；Si：1.2—2.0...'
+2025-11-24 23:09:18 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:18 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 45] --- 三 合金铸铁（了解） 向铸铁中添加一些合金元素可获得一些合金铸铁...'
+2025-11-24 23:09:19 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:19 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 45/70 个块...
+2025-11-24 23:09:19 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 46] --- 第六章 有色金属及其合金 黑色金属：铁及其合金。有色金属：其他非...'
+2025-11-24 23:09:20 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:20 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 47] --- 时效处理：将所得到的过饱和α固溶体在室温长时间放置（自然时效）或...'
+2025-11-24 23:09:22 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:22 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 48] --- 性能特点：密度低，比强度、比刚度高（高于传统铝合金和钛合金），具...'
+2025-11-24 23:09:23 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:23 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 49] --- 2.2 常用的轴承合金 锡基和铅基轴承合金（巴氏合金），铜基轴承...'
+2025-11-24 23:09:24 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:24 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 50] --- 应用：精密机械、仪表中的零件,冷凝器、热交换器以及蒸馏器等. (...'
+2025-11-24 23:09:25 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:25 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 50/70 个块...
+2025-11-24 23:09:25 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 51] --- 第七章 高分子材料 高分子材料是以相对分子量大于5000的高分子...'
+2025-11-24 23:09:27 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:27 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 52] --- （2）高分子链的空间构型：高分子链的原子或者原子团在空间的排列形...'
+2025-11-24 23:09:28 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:28 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 53] --- Tx<T<Tg,玻璃态.高分子链处于“冻结”状态.受力后弹性变形...'
+2025-11-24 23:09:29 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:29 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 54] --- 三 常用高分子材料（了解） 讲了塑料、橡胶. 3.1 常用工程塑...'
+2025-11-24 23:09:31 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:31 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 55] --- 性能：良好的绝缘性、耐热性,较高强度、硬度和刚度.缺点：性脆易碎...'
+2025-11-24 23:09:32 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:32 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 55/70 个块...
+2025-11-24 23:09:32 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 56] --- 第八章 陶瓷材料 陶瓷材料：用一些无机化合物粉末 , 通过成型和...'
+2025-11-24 23:09:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 57] --- 二 工程结构陶瓷材料（了解） 2.1 普通陶瓷 莫来石、玻璃、气...'
+2025-11-24 23:09:34 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:34 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 58] --- 3.1 粉末冶金方法及其应用 用粉末为原料、压制成型并经过烧结而...'
+2025-11-24 23:09:35 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:35 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 59] --- 第九章 复合材料 一 概述 复合材料：用两种或两种以上不同性质的...'
+2025-11-24 23:09:36 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:36 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 60] --- 2.1 增强材料 (1) 纤维增强材料 玻璃纤维、碳纤维、B纤维...'
+2025-11-24 23:09:38 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:38 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 60/70 个块...
+2025-11-24 23:09:38 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 61] --- 玻璃钢的应用： ⃝1要求自重轻的受力构件； ⃝2要求无磁性、绝缘...'
+2025-11-24 23:09:39 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 62] --- 第十章 功能材料 一 概述 功能材料：以特殊的电、磁、声、光、热...'
+2025-11-24 23:09:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:09:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 63] --- ⃝3约瑟夫森效应：承担超导电的超导电子还可以穿越极薄绝缘体势垒....'
+2025-11-24 23:09:41 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:41 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 64] --- 常用磁致伸缩材料：镍、铁镍、铁铝、铁钴钒合金 ,铁氧体 . 利用...'
+2025-11-24 23:09:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 65] --- 五 光功能材料（了解） 5.1 固体激光材料 激光产生的条件：使...'
+2025-11-24 23:09:44 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:44 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 65/70 个块...
+2025-11-24 23:09:44 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 66] --- 第十一章 零件的选材及工艺路线 本章：齿轮（机床齿轮、汽车变速箱...'
+2025-11-24 23:09:45 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:45 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 67] --- 二 轴（以内燃机曲轴为例） 2.1 工作条件 (1) 承受交变扭...'
+2025-11-24 23:09:46 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:46 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 1] --- 西安交通大学考试题 成绩 课 程 工程材料基础 学 院 考 试 日...'
+2025-11-24 23:09:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:47 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 2] --- 6．石墨为片状的灰口铸铁称为 铸铁，石墨为团絮状的灰口铸铁称为 铸...'
+2025-11-24 23:09:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 3] --- 四、简答（19 分）： 1．一构件选用40CrNiMo钢制造。经最...'
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 70/70 个块...
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : 分类完成！共处理 70 个知识块。
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 88.32 s | 产出文件: 1 个
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: Master Summary] ---
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载 Prompts 文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 23:09:49 [INFO ] [SmartReviewGene] : [DEBUG] Prompts 加载成功。
+2025-11-24 23:09:51 [INFO ] [SmartReviewGene] : 配置: 主模型=deepseek-chat, 线程数=1
+2025-11-24 23:09:51 [INFO ] [SmartReviewGene] : 开始处理 70 个上下文块 (Sliding Windows)...
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : >>> [任务 7f03203a-197c-46c8-b97d-7aae9a0ca59e] 收到生成请求
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 23:22:54
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\7f03203a-197c-46c8-b97d-7aae9a0ca59e
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 1 个
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 扫描完成，找到 1 个文件。
+2025-11-24 23:22:54 [WARNI] [SmartReviewGene] : 跳过空文件或解析失败: 3..pdf
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 预处理完成。成功: 0/1
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 0.03 s | 产出文件: 0 个
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) [V3: Sliding Window] ---
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 配置: 窗口大小=3页 (用于构建上下文)
+2025-11-24 23:22:54 [WARNI] [SmartReviewGene] : 未找到预处理文件。
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.00 s | 产出文件: 0 个
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 23:22:54 [ERROR] [SmartReviewGene] : 错误：找不到“哑”目录文件 'C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json'。
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 0.00 s | 产出文件: 0 个
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: Master Summary] ---
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     ✅ [完成] 解析耗时: 0.00 s | 产出文件: 0 个
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 
+>>> [5/6] 启动【统一器 (Unifier)】
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] :     -> 目标: 统一格式标准 -> 4.5_unified
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : ===   🧠 步骤 4.5: 统一 (Unifying) 启动   ===
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 23:22:54 [INFO ] [SmartReviewGene] : 💾 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🤖 使用模型: deepseek-chat
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧵 线程池大小: 1
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 
+>>> [阶段 1/3] 扫描文件与建立映射...
+2025-11-24 23:22:56 [WARNI] [SmartReviewGene] : ⚠️  未找到任何已解析的 JSON 文件，流程结束。
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     ✅ [完成] 统一耗时: 1.61 s | 产出文件: 0 个
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 
+>>> [6/6] 启动【打包器 (Merger)】
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> 目标: 生成最终 JSON 知识库 -> 5_final
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : ===    📦 步骤 6: 打包 (Merging) 启动    ===
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 💾 输出路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🔍 正在递归扫描 .json 文件...
+2025-11-24 23:22:56 [WARNI] [SmartReviewGene] : ⚠️  警告: 在 C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified 中未找到任何 .json 文件。
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🛑 打包流程提前结束 (无数据)。
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     ✅ [完成] 打包耗时: 0.01 s
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在启动中间过程文件清理程序...
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :   -> [Step 1/5] 清理: 1_preprocessed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :   -> [Step 2/5] 清理: 2_integrated
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :   -> [Step 3/5] 清理: 3_classified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :   -> [Step 4/5] 清理: 4_parsed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :   -> [Step 5/5] 清理: 4.5_unified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : ✅ [收尾] 中间文件清理完毕
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : ===    ✅ 流水线全部执行完毕 (SUCCESS)    ===
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 1.81 秒
+2025-11-24 23:22:56 [ERROR] [SmartReviewGene] : ❌ 错误：流程显示成功，但未找到最终文件: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] :    OUTPUT_FINAL 目录内容: []
+2025-11-24 23:22:56 [ERROR] [SmartReviewGene] : 任务 [7f03203a-197c-46c8-b97d-7aae9a0ca59e] 失败
+Traceback (most recent call last):
+  File "C:\Users\13081\Desktop\大学复习酱\server.py", line 68, in generate_kb
+    raise Exception("Pipeline 执行失败，请检查后端日志")
+Exception: Pipeline 执行失败，请检查后端日志
+2025-11-24 23:22:56 [INFO ] [SmartReviewGene] : 任务 [7f03203a-197c-46c8-b97d-7aae9a0ca59e] 输入临时文件已清理
+2025-11-24 23:23:21 [ERROR] [SmartReviewGene] : !!! 保存文件失败: [Errno 2] No such file or directory: 'C:\\Users\\13081\\Desktop\\大学复习酱\\2_outputs\\4_parsed\\1_p24-26_q0.json'
+2025-11-24 23:23:21 [ERROR] [SmartReviewGene] : !!! 保存文件失败: [Errno 2] No such file or directory: 'C:\\Users\\13081\\Desktop\\大学复习酱\\2_outputs\\4_parsed\\1_p24-26_q1.json'
+2025-11-24 23:23:21 [ERROR] [SmartReviewGene] : !!! 保存文件失败: [Errno 2] No such file or directory: 'C:\\Users\\13081\\Desktop\\大学复习酱\\2_outputs\\4_parsed\\1_p24-26_q2.json'
+2025-11-24 23:25:06 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-24 23:25:06 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-24 23:25:06 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:25:13 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-24 23:25:13 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-24 23:25:13 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:25:28 [INFO ] [SmartReviewGene] : >>> [任务 7dc784dd-6036-422a-a2b7-2ea2db051d7a] 收到生成请求
+2025-11-24 23:25:28 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-24 23:25:28 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : ===    🚀 Smart Review 知识库生成流水线 启动    ===
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : =================================================
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 📅 当前时间: 2025-11-24 23:25:29
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 📂 项目根目录: C:\Users\13081\Desktop\大学复习酱
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🔄 [动态配置] 检测到自定义输入路径
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> 输入源已更新为: C:\Users\13081\Desktop\大学复习酱\temp_uploads\7dc784dd-6036-422a-a2b7-2ea2db051d7a
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 📊 [检查] 输入目录下现有文件数: 2 个
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 
+-------------------------------------------------
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : [0/6] 正在初始化环境（清场模式）...
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 5_final
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : ✅ 环境准备就绪，输出目录已重建。
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 
+>>> [1/6] 启动【预处理器 (Preprocessor)】
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] :     -> 目标: 清洗原始数据 -> 1_preprocessed
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : --- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---
+2025-11-24 23:25:29 [INFO ] [SmartReviewGene] : 扫描完成，找到 2 个文件。
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : 预处理完成。成功: 2/2
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] :     ✅ [完成] 预处理耗时: 7.67 s | 产出文件: 2 个
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : 
+>>> [2/6] 启动【整合者 (Integrator)】
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] :     -> 目标: 整合清洗后的数据 -> 2_integrated
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : --- 步骤 2: 整合 (Integrating) [V3: Sliding Window] ---
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : 配置: 窗口大小=3页 (用于构建上下文)
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : 整合完成！生成 70 个上下文块。
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] :     ✅ [完成] 整合耗时: 0.03 s | 产出文件: 1 个
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : 
+>>> [3/6] 启动【智能分类器 (Classifier)】
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] :     -> 目标: 对内容进行语义分类 -> 3_classified
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : --- 步骤 3: 分类 (Classifying) ---
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] 输入文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated\catalog_raw.json
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] 输出文件路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载提示词文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] 提示词文件加载成功。
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-24 23:25:36 [INFO ] [SmartReviewGene] : [DEBUG] API Base URL: https://api.deepseek.com
+2025-11-24 23:25:38 [INFO ] [SmartReviewGene] : API 客户端和 Prompts 加载成功，准备开始分类...
+2025-11-24 23:25:38 [INFO ] [SmartReviewGene] : [DEBUG] 成功读取 Raw Catalog，共包含 70 个块。
+2025-11-24 23:25:38 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 1] --- 文治学辅与发展中心 知 识 工程材料基础 梳 理 【第一版】 系 ...'
+2025-11-24 23:25:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 2] --- 前言 《工程材料基础》（以下简称工材）是西安交通大学机类专业学生必...'
+2025-11-24 23:25:41 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:41 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 3] --- v 1.0 编写小组成员 编写 能动 C71 吴家豪 编辑 能动 ...'
+2025-11-24 23:25:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 4] --- 目录 绪论 5 第1章 机械零件的失效形式及抗力指标 6 一 零件...'
+2025-11-24 23:25:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 5] --- 第6章 有色金属及其合金 45 一 铝及铝合金 . . . . ....'
+2025-11-24 23:25:45 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:45 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 5/70 个块...
+2025-11-24 23:25:45 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 6] --- 绪论 材料科学：研究所有固体材料的成分、组织和性能之间关系的一门科...'
+2025-11-24 23:25:46 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:46 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 7] --- 第一章 机械零件的失效形式及抗力指标 （零件功能：在一定压力，温度...'
+2025-11-24 23:25:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 8] --- 作。精密机床丝杠，不允许产生塑性变形，屈服强度。 钢铁材料的弹性模...'
+2025-11-24 23:25:49 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:49 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 9] --- 决定材料断裂类型的主要因素有： 加载方式、材料本质、温度、加载速度...'
+2025-11-24 23:25:50 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:50 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 10] --- 影响疲劳抗力的因素：载荷类型、材料本质、零件表面状态、温度、腐蚀...'
+2025-11-24 23:25:52 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:52 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 10/70 个块...
+2025-11-24 23:25:52 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 11] --- 3. 腐蚀磨损 在摩擦力和环境介质联合作用下，金属表层的腐蚀产物...'
+2025-11-24 23:25:54 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:54 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 12] --- 1. 化学腐蚀（以高温氧化腐蚀为主） 高温氧化过程：（1）金属失...'
+2025-11-24 23:25:55 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:25:55 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 13] --- ￿材料的强度随温度的升高而降低。 ￿高温下材料的强度随加载时间的...'
+2025-11-24 23:25:56 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:56 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 14] --- 第二章 碳钢 碳钢：是一种以Fe、C两种元素为主要成分的合金。 ...'
+2025-11-24 23:25:57 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:57 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 15] --- 纯铁的同素异构转变 δ-Fe(体心立方) 1←394→oC γ-...'
+2025-11-24 23:25:58 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:58 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 15/70 个块...
+2025-11-24 23:25:58 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 16] --- 产生了晶格畸变。与基体金属相比，固溶体的强度硬度升高，其塑性韧性...'
+2025-11-24 23:25:59 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:25:59 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 17] --- 心 中 展 发 ￿碳在铁中最大溶解度点： P（0.0218，72...'
+2025-11-24 23:26:00 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:00 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 18] --- （2）恒温转变 ￿包晶转变HJB：δ +L →γ （1495℃）...'
+2025-11-24 23:26:02 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 23:26:02 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 19] --- ￿工业纯铁0.01 L −匀−晶→δ−同−素−异−→构 γ −同...'
+2025-11-24 23:26:03 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [FORMULA]
+2025-11-24 23:26:03 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 20] --- ￿共晶白口铸铁4.3%： L −共−晶→Ld−共−晶−−γ−析−...'
+2025-11-24 23:26:04 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:04 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 20/70 个块...
+2025-11-24 23:26:04 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 21] --- 对力学性能的影响： 铁素体(F)：固溶体，软而韧；渗碳体(Fe ...'
+2025-11-24 23:26:05 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:05 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 22] --- （1）氢： ￿引起氢脆，在钢中产生裂纹，降低钢的塑性韧性；￿容易...'
+2025-11-24 23:26:06 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:06 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 23] --- 不利：冷冲压件的制耳现象。 （4）产生残余应力，使零件尺寸不稳定...'
+2025-11-24 23:26:07 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:07 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 24] --- 命。 七 碳钢的分类和牌号 按含碳量分类：低碳钢≤0.25％，中...'
+2025-11-24 23:26:08 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:08 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 25] --- 第三章 钢的热处理 钢的热处理：通过对钢件（金属）进行加热、保温...'
+2025-11-24 23:26:10 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:10 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 25/70 个块...
+2025-11-24 23:26:10 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 26] --- 2.1 过冷奥氏体等温转变图 孕育期：珠光体开始转变对应的时间。...'
+2025-11-24 23:26:11 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:11 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 27] --- (3) 马氏体转变 孕育期短到难以测出→必须继续降低温度才有新的...'
+2025-11-24 23:26:12 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:12 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 28] --- 2.3 奥氏体连续冷却转变图 CCT 图（了解） 与“C”曲线相...'
+2025-11-24 23:26:13 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:13 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 29] --- 组织：获得球状 P 球。（片状珠光体硬度高，不适合加工；球状珠光...'
+2025-11-24 23:26:14 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:14 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 30] --- 测定方法： ￿ 临界直径法。在相同淬火介质中，D0越大，钢的淬透...'
+2025-11-24 23:26:16 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:16 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 30/70 个块...
+2025-11-24 23:26:16 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 31] --- 生产上将淬火+高温回火称为调质处理。 一般规律：回火温度升高，强...'
+2025-11-24 23:26:17 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:17 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 32] --- 提高工件表层的碳含量，使工件经热处理之后表面具有高的硬度和耐磨性...'
+2025-11-24 23:26:18 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:18 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 33] --- 第四章 合金钢 一 概述 碳钢优点：冶炼工艺较简单，成本低，压力...'
+2025-11-24 23:26:20 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:20 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 34] --- 1.3 使钢具有特殊性能 抗腐蚀性能（不锈钢）、抗高温氧化性能（...'
+2025-11-24 23:26:21 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:21 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 35] --- 2.2 合金渗碳钢 典型牌号：20CrMnTi，20CrMnMo...'
+2025-11-24 23:26:22 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:22 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 35/70 个块...
+2025-11-24 23:26:22 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 36] --- 成分：Wc0.45—0.70%，多数0.6%（中、高碳）。合金元...'
+2025-11-24 23:26:23 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:23 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 37] --- 成分：高碳Wc为0.85-0.95%。合金元素：Si,Cr,Mn...'
+2025-11-24 23:26:24 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:24 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 38] --- 热疲劳抗力;高导热。 典型牌号：5CrNiMo（中碳合金工具钢）...'
+2025-11-24 23:26:25 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:25 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 39] --- 用零构件等，如硝酸吸收塔、磷酸槽等。 (3) 奥氏体不锈钢(奥氏...'
+2025-11-24 23:26:26 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:26 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 40] --- (3) 奥氏体型耐热钢典型牌号：07Cr19Ni11Ti,16C...'
+2025-11-24 23:26:27 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:27 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 40/70 个块...
+2025-11-24 23:26:27 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 41] --- 第五章 铸铁 白口铸铁性能脆硬，工业很少应用。 铸铁是含碳量wc...'
+2025-11-24 23:26:29 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:29 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 42] --- ￿ 从液相中直接析出一次石墨G 。L −→ G (Wc > 4....'
+2025-11-24 23:26:30 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:30 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 43] --- ￿ 灰口铸铁。石墨化程度最高，断口呈灰色。 ￿ 白口铸铁。无石墨...'
+2025-11-24 23:26:31 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:31 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 44] --- (3) 可锻铸铁成分：C：2.4—2.8%；Si：1.2—2.0...'
+2025-11-24 23:26:32 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:32 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 45] --- 三 合金铸铁（了解） 向铸铁中添加一些合金元素可获得一些合金铸铁...'
+2025-11-24 23:26:33 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:33 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 45/70 个块...
+2025-11-24 23:26:33 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 46] --- 第六章 有色金属及其合金 黑色金属：铁及其合金。有色金属：其他非...'
+2025-11-24 23:26:35 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:35 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 47] --- 时效处理：将所得到的过饱和α固溶体在室温长时间放置（自然时效）或...'
+2025-11-24 23:26:36 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:36 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 48] --- 性能特点：密度低，比强度、比刚度高（高于传统铝合金和钛合金），具...'
+2025-11-24 23:26:37 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:37 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 49] --- 2.2 常用的轴承合金 锡基和铅基轴承合金（巴氏合金），铜基轴承...'
+2025-11-24 23:26:38 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:38 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 50] --- 应用：精密机械、仪表中的零件,冷凝器、热交换器以及蒸馏器等. (...'
+2025-11-24 23:26:39 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:39 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 50/70 个块...
+2025-11-24 23:26:39 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 51] --- 第七章 高分子材料 高分子材料是以相对分子量大于5000的高分子...'
+2025-11-24 23:26:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:40 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 52] --- （2）高分子链的空间构型：高分子链的原子或者原子团在空间的排列形...'
+2025-11-24 23:26:41 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:41 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 53] --- Tx<T<Tg,玻璃态.高分子链处于“冻结”状态.受力后弹性变形...'
+2025-11-24 23:26:42 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:42 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 54] --- 三 常用高分子材料（了解） 讲了塑料、橡胶. 3.1 常用工程塑...'
+2025-11-24 23:26:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:43 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 55] --- 性能：良好的绝缘性、耐热性,较高强度、硬度和刚度.缺点：性脆易碎...'
+2025-11-24 23:26:45 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:45 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 55/70 个块...
+2025-11-24 23:26:45 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 56] --- 第八章 陶瓷材料 陶瓷材料：用一些无机化合物粉末 , 通过成型和...'
+2025-11-24 23:26:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:47 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 57] --- 二 工程结构陶瓷材料（了解） 2.1 普通陶瓷 莫来石、玻璃、气...'
+2025-11-24 23:26:48 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:48 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 58] --- 3.1 粉末冶金方法及其应用 用粉末为原料、压制成型并经过烧结而...'
+2025-11-24 23:26:49 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:49 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 59] --- 第九章 复合材料 一 概述 复合材料：用两种或两种以上不同性质的...'
+2025-11-24 23:26:51 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:51 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 60] --- 2.1 增强材料 (1) 纤维增强材料 玻璃纤维、碳纤维、B纤维...'
+2025-11-24 23:26:52 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:52 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 60/70 个块...
+2025-11-24 23:26:52 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 61] --- 玻璃钢的应用： ⃝1要求自重轻的受力构件； ⃝2要求无磁性、绝缘...'
+2025-11-24 23:26:53 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:53 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 62] --- 第十章 功能材料 一 概述 功能材料：以特殊的电、磁、声、光、热...'
+2025-11-24 23:26:54 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [DEFINITION]
+2025-11-24 23:26:54 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 63] --- ⃝3约瑟夫森效应：承担超导电的超导电子还可以穿越极薄绝缘体势垒....'
+2025-11-24 23:26:55 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:55 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 64] --- 常用磁致伸缩材料：镍、铁镍、铁铝、铁钴钒合金 ,铁氧体 . 利用...'
+2025-11-24 23:26:56 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:56 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 65] --- 五 光功能材料（了解） 5.1 固体激光材料 激光产生的条件：使...'
+2025-11-24 23:26:58 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:58 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 65/70 个块...
+2025-11-24 23:26:58 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 66] --- 第十一章 零件的选材及工艺路线 本章：齿轮（机床齿轮、汽车变速箱...'
+2025-11-24 23:26:59 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:26:59 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 67] --- 二 轴（以内燃机曲轴为例） 2.1 工作条件 (1) 承受交变扭...'
+2025-11-24 23:27:00 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:27:00 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 1] --- 西安交通大学考试题 成绩 课 程 工程材料基础 学 院 考 试 日...'
+2025-11-24 23:27:01 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:27:01 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 2] --- 6．石墨为片状的灰口铸铁称为 铸铁，石墨为团絮状的灰口铸铁称为 铸...'
+2025-11-24 23:27:02 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:27:02 [INFO ] [SmartReviewGene] : [DEBUG] >>> 请求 API 分类片段: '--- [Page 3] --- 四、简答（19 分）： 1．一构件选用40CrNiMo钢制造。经最...'
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应内容: [GENERAL]
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : [DEBUG] 已处理 70/70 个块...
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : 分类完成！共处理 70 个知识块。
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : “智能”目录文件已保存到: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified\catalog_smart.json
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : 完成: 分类。
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] :     ✅ [完成] 分类耗时: 87.14 s | 产出文件: 1 个
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : 
+>>> [4/6] 启动【解析/提取器 (Parser)】
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] :     -> 目标: 提取结构化知识点 -> 4_parsed
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : --- 步骤 4: 解析 (Parsing) [V3: Master Summary] ---
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : [DEBUG] 正在加载 Prompts 文件: C:\Users\13081\Desktop\大学复习酱\configs\agent_prompts.yaml
+2025-11-24 23:27:03 [INFO ] [SmartReviewGene] : [DEBUG] Prompts 加载成功。
+2025-11-24 23:27:05 [INFO ] [SmartReviewGene] : 配置: 主模型=deepseek-chat, 线程数=1
+2025-11-24 23:27:05 [INFO ] [SmartReviewGene] : 开始处理 70 个上下文块 (Sliding Windows)...
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : 解析完成！生成 353 个知识节点。
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] :     ✅ [完成] 解析耗时: 2635.58 s | 产出文件: 353 个
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : 
+>>> [5/6] 启动【统一器 (Unifier)】
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] :     -> 目标: 统一格式标准 -> 4.5_unified
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : ===   🧠 步骤 4.5: 统一 (Unifying) 启动   ===
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-25 00:10:59 [INFO ] [SmartReviewGene] : 💾 输出目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-25 00:11:01 [INFO ] [SmartReviewGene] : 🤖 使用模型: deepseek-chat
+2025-11-25 00:11:01 [INFO ] [SmartReviewGene] : 🧵 线程池大小: 1
+2025-11-25 00:11:01 [INFO ] [SmartReviewGene] : 
+>>> [阶段 1/3] 扫描文件与建立映射...
+2025-11-25 00:11:05 [INFO ] [SmartReviewGene] : ✅ 扫描完成: 353 个文件，识别到 287 个标题。
+2025-11-25 00:11:05 [INFO ] [SmartReviewGene] : 
+>>> [阶段 2/3] 调用 LLM 进行语义分组...
+2025-11-25 00:11:52 [INFO ] [SmartReviewGene] : ✅ 分组完成 (耗时 46.85s):
+2025-11-25 00:11:52 [INFO ] [SmartReviewGene] :    -> 发现 38 个聚合组 (涉及 122 个文件)
+2025-11-25 00:11:52 [INFO ] [SmartReviewGene] :    -> 剩余 231 个独立文件将直接通过。
+2025-11-25 00:11:52 [INFO ] [SmartReviewGene] : 
+>>> [阶段 3/3] 执行合成与迁移...
+2025-11-25 00:18:49 [INFO ] [SmartReviewGene] : 
+>>> [收尾] 复制未分组的独立文件...
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ✅ 统一流程完成 (Success)
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :    - 原始文件数: 353
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :    - 聚合生成数: 38 (来自 122 个原文件)
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :    - 直接复制数: 231
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :    - 最终产出数: 269
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 473.06 秒
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :     ✅ [完成] 统一耗时: 473.07 s | 产出文件: 269 个
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 
+>>> [6/6] 启动【打包器 (Merger)】
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] :     -> 目标: 生成最终 JSON 知识库 -> 5_final
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ===    📦 步骤 6: 打包 (Merging) 启动    ===
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 📂 输入目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 💾 输出路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 🔍 正在递归扫描 .json 文件...
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ✅ 扫描完成，共找到 269 个文件准备合并。
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 🏷️  知识库名称: 自动生成的Smart Review知识库
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : ⚙️  Schema版本: v2.0-generated
+2025-11-25 00:18:52 [INFO ] [SmartReviewGene] : 🚀 开始合并数据...
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 📝 正在构建最终 JSON 文件...
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ✅ 打包成功 (Success)
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 📊 统计:
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :    - 扫描文件: 269
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :    - 成功合并: 269
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :    - 失败/跳过: 0
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 📄 输出文件: Smart_Review_KB.json
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 💾 文件大小: 1.59 MB
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🔗 完整路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 1.16 秒
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : ----------------------------------------
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 💡 提示: 你现在可以将此 JSON 文件直接拖入 'Smart Review' 前端进行导入。
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : === 📦 步骤 6: 打包 结束 ===
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :     ✅ [完成] 打包耗时: 1.17 s
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🧹 [收尾] 正在启动中间过程文件清理程序...
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :   -> [Step 1/5] 清理: 1_preprocessed
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\1_preprocessed
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 1_preprocessed
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :   -> [Step 2/5] 清理: 2_integrated
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\2_integrated
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 2_integrated
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :   -> [Step 3/5] 清理: 3_classified
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\3_classified
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 3_classified
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] :   -> [Step 4/5] 清理: 4_parsed
+2025-11-25 00:18:53 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4_parsed
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4_parsed
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] :   -> [Step 5/5] 清理: 4.5_unified
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 🧹 [清理] 正在检查目录: C:\Users\13081\Desktop\大学复习酱\2_outputs\4.5_unified
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] :     -> ✅ 已完全删除目录: 4.5_unified
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : ✅ [收尾] 中间文件清理完毕
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 
+=================================================
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : ===    ✅ 流水线全部执行完毕 (SUCCESS)    ===
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : =================================================
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : ⏱️  总耗时: 3205.30 秒
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 📄 最终产物: Smart_Review_KB.json
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 💾 文件大小: 1.59 MB
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 🔗 绝对路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 任务完成，返回 269 个节点
+2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 任务 [7dc784dd-6036-422a-a2b7-2ea2db051d7a] 输入临时文件已清理

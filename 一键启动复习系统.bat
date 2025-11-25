@@ -16,11 +16,11 @@ echo [Step 1] Activating Conda environment...
 
 if not exist "%CONDA_ROOT%\Scripts\activate.bat" (
 
-    echo Error: Cannot find activate.bat
+? ? echo Error: Cannot find activate.bat
 
-    pause
+? ? pause
 
-    exit /b
+? ? exit /b
 
 )
 
@@ -44,4 +44,4 @@ echo.
 
 echo Server stopped.
 
-pause请你参考这个bat文件，用写一下，用我们位于这个文件同目录下的environment.yml，用conda导入这个文件创建一个环境
+pause

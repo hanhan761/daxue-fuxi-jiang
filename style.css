@@ -174,8 +174,7 @@ label.btn {
     color: var(--color-primary);
     margin-bottom: 10px;
     cursor: pointer;
-    /* --- MODIFIED --- */
-    user-select: none; /* 防止右键点击时选中文本 */
+    user-select: none;
 }
 .card-meta {
     font-size: 14px;
@@ -298,6 +297,7 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative; /* 为子元素定位做参考 */
 }
 .flashcard-title {
     font-size: 26px;
@@ -310,17 +310,36 @@ textarea.form-control {
     padding-top: 20px;
     margin-top: 20px;
 }
-/* 闪卡中的图片样式 */
+
+/* [修改] 闪卡图片样式：支持悬停放大 */
 .flashcard-image {
     max-width: 100%;
-    height: auto;
+    max-height: 400px; /* 限制初始最大高度，防止图片过长 */
+    width: auto;
     border-radius: var(--border-radius);
     margin-bottom: 15px;
     border: 1px solid var(--color-bg);
+    
+    /* 动画与交互设置 */
+    cursor: zoom-in; /* 鼠标变为放大镜图标 */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease; /* 平滑过渡 */
+    position: relative;
+    z-index: 10; /* 默认层级 */
+    transform-origin: center center; /* 从中心放大 */
 }
+
+/* 鼠标悬停时的状态 */
+.flashcard-image:hover {
+    transform: scale(2.0); /* 放大 2 倍 (你可以改成 1.5 或 2.5) */
+    z-index: 100;          /* 极大提高层级，确保遮盖住下方的文字和按钮 */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* 添加强烈阴影，增加浮空感 */
+    background-color: var(--color-card); /* 加上背景色，防止透明PNG与下方文字重叠 */
+    border-color: var(--color-primary);
+}
+
 .kp-content-text {
     font-size: 16px;
-    white-space: pre-wrap; /* 保留换行 */
+    white-space: pre-wrap;
     word-break: break-word;
 }
 .review-actions {
@@ -466,7 +485,7 @@ textarea.form-control {
     color: var(--color-text-secondary);
     font-size: 14px;
     border-top: 1px solid #e0e0e0;
-    background-color: var(--color-card); /* 匹配头部背景 */
+    background-color: var(--color-card);
 }
 .app-footer p {
     margin: 0;

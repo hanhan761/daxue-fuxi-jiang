@@ -3,6 +3,17 @@ import sys
 import json
 from tqdm import tqdm
 import nltk
+# 引入原生处理库
+try:
+    from pptx import Presentation
+    import pdfplumber
+    from docx import Document
+except ImportError:
+    print("请先安装依赖: pip install python-pptx pdfplumber python-docx")
+    sys.exit(1)
+
+from collections import Counter
+# 保留 unstructured 作为兜底方案 (处理 html, jpg 等其他格式)
 from unstructured.partition.auto import partition
 from unstructured.cleaners.core import clean, clean_extra_whitespace
 
@@ -12,136 +23,225 @@ sys.path.append(PROJECT_ROOT)
 
 try:
     from configs import settings
-    # 🌟 导入配置好的 logger 实例
     from src.utils.logger_config import logger
 except ImportError as e:
     print(f"CRITICAL: 1_preprocessor.py 无法导入 settings 或 logger: {e}")
     sys.exit(1)
 
 
-# --- 2. NLTK 依赖检查 ---
-def download_nltk_data():
-    """
-    检查并下载 'nltk' 的 'punkt' 模块，用于句子分割。
-    """
+# --- 2. 专用提取函数群 ---
+
+def process_txt_native(file_path):
+    """处理 TXT: 直接读取"""
     try:
-        nltk.data.find('tokenizers/punkt')
-        logger.debug("NLTK 'punkt' 模块已安装。")
-    except LookupError:
-        logger.info("NLTK 'punkt' 模块未找到，正在下载...")
-        nltk.download('punkt', quiet=True)
-        logger.info("NLTK 'punkt' 下载完成。")
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        return [{
+            "id": "txt_full",
+            "type": "Text",
+            "text": content,
+            "metadata": {"filename": os.path.basename(file_path)}
+        }]
+    except Exception as e:
+        logger.error(f"TXT 读取失败: {e}")
+        return []
 
+def process_pptx_native(file_path):
+    """处理 PPTX: 递归遍历所有 Shape，按 Slide 聚合"""
+    elements = []
+    try:
+        prs = Presentation(file_path)
+        
+        # 递归提取函数：处理 Group 组合图形
+        def extract_shape_text(shape):
+            text_parts = []
+            # 1. 提取文本框内容
+            if shape.has_text_frame:
+                for paragraph in shape.text_frame.paragraphs:
+                    text = paragraph.text.strip()
+                    if text:
+                        text_parts.append(text)
+            # 2. 提取表格内容
+            if shape.has_table:
+                for row in shape.table.rows:
+                    row_text = " | ".join([cell.text_frame.text.strip() for cell in row.cells if cell.text_frame.text.strip()])
+                    if row_text:
+                        text_parts.append(row_text)
+            # 3. 递归处理组合图形 (Group)
+            if shape.shape_type == 6: # MSO_SHAPE_TYPE.GROUP
+                for child in shape.shapes:
+                    text_parts.extend(extract_shape_text(child))
+            return text_parts
 
-# --- 3. 核心预处理逻辑 ---
+        for i, slide in enumerate(prs.slides):
+            page_num = i + 1
+            page_content = []
+            
+            # 遍历所有形状 (不仅仅是 placeholders)
+            for shape in slide.shapes:
+                texts = extract_shape_text(shape)
+                if texts:
+                    page_content.extend(texts)
+            
+            # 如果这一页有字，聚合为一个 Text 块
+            if page_content:
+                full_text = "\n".join(page_content)
+                elements.append({
+                    "id": f"pptx_p{page_num}",
+                    "type": "Text", # 统一为 Text，交给 LLM 去区分标题和正文
+                    "text": full_text,
+                    "metadata": {"page_number": page_num, "filename": os.path.basename(file_path)}
+                })
+    except Exception as e:
+        logger.error(f"PPTX 解析失败 [{os.path.basename(file_path)}]: {e}")
+    return elements
+
+def process_pdf_native(file_path):
+    """处理 PDF: 使用 pdfplumber 按页物理提取"""
+    elements = []
+    try:
+        with pdfplumber.open(file_path) as pdf:
+            for i, page in enumerate(pdf.pages):
+                # extract_text(layout=True) 尝试保留物理布局
+                text = page.extract_text(layout=False) 
+                if text and text.strip():
+                    elements.append({
+                        "id": f"pdf_p{i+1}",
+                        "type": "Text",
+                        "text": text.strip(),
+                        "metadata": {"page_number": i+1, "filename": os.path.basename(file_path)}
+                    })
+    except Exception as e:
+        logger.error(f"PDF 解析失败 [{os.path.basename(file_path)}]: {e}")
+    return elements
+
+def process_docx_native(file_path):
+    """处理 DOCX: 遍历段落和表格"""
+    elements = []
+    try:
+        doc = Document(file_path)
+        full_text = []
+        
+        # 简单粗暴策略：按顺序读取所有段落和表格，拼接成一个大文本流
+        # (也可以选择按“页”大概切分，但Word没有严格的页概念，通常按整个文档或章节处理)
+        
+        # 这里演示：将整个文档作为一个大的 Text 块 (或者你可以按每 10 个段落切分)
+        # 为了给 LLM 好的上下文，我们尽量保留连续性
+        
+        for para in doc.paragraphs:
+            if para.text.strip():
+                full_text.append(para.text.strip())
+        
+        # 简单的表格提取 (追加在段落后，或者你可以尝试穿插，但 python-docx 穿插读取比较麻烦)
+        # 实际上 Word 的段落和表格是按顺序存储在 doc.element.body 中的，如果追求极致顺序，需要解析 XML
+        # 这里采用简单策略：先段落后表格 (适合只有文末附件表格的情况)，
+        # 或者使用 unstructured 处理 docx 其实效果还行。
+        # 但既然要 native，我们可以只提段落，或者做简单处理。
+        
+        # *改进版*：按 XML 顺序遍历 (伪代码逻辑，简化实现)
+        # 鉴于 python-docx 混合读取比较复杂，我们这里先只读取段落。
+        # 如果 DOCX 表格非常重要，建议 DOCX 依然保留使用 unstructured，或者使用专门的 docx2txt 库。
+        
+        # 让我们尝试一种折中：只把表格作为补充文本附在最后，或者仅提取段落。
+        # 大部分课件 Word 都是大段文字。
+        
+        # 使用 Unstructured 处理 DOCX 其实往往比手写 XML 解析要好，
+        # 所以对于 DOCX，我们可以选择 **兜底使用 Unstructured**，除非你有非常特殊的表格需求。
+        # 这里我演示如何用 Native 读段落：
+        
+        pass # 实际逻辑在下方 router 中决定是否使用 native
+        
+    except Exception as e:
+        logger.error(f"DOCX 解析失败: {e}")
+    return elements
+
+# --- 3. 主路由逻辑 ---
+
 def run_preprocessing():
     """
-    步骤1：预处理器主函数。
-    - 读取: settings.INPUTS_DIR (递归)
-    - 写入: settings.OUTPUT_PREPROCESSED (保持目录结构)
+    预处理主入口：根据文件扩展名分发给不同的提取器
     """
-    logger.info("--- 步骤 1: 预处理 (Pre-processing) ---")
-    download_nltk_data()
-
+    logger.info("--- 步骤 1: 预处理 (Pre-processing) [Native Mode] ---")
+    
     input_dir = settings.INPUTS_DIR
     output_dir = settings.OUTPUT_PREPROCESSED
-
-    # --- 收集所有输入文件 (递归扫描) ---
-    files_to_process = []
-    logger.info(f"正在扫描输入目录 (递归): {input_dir}")
     
     if not input_dir.exists():
         logger.error(f"输入目录不存在: {input_dir}")
         return
 
+    files_to_process = []
     for root, dirs, files in os.walk(input_dir):
         for filename in files:
             if filename.startswith('.'): continue
+            files_to_process.append(os.path.join(root, filename))
 
-            file_path = os.path.join(root, filename)
-            relative_path = os.path.relpath(file_path, input_dir)
-            base_json_name = os.path.splitext(relative_path)[0] + '.json'
-            output_path = output_dir / base_json_name
-
-            files_to_process.append((file_path, output_path))
-
-    if not files_to_process:
-        logger.info("未找到需要处理的新文件。")
-        logger.info("完成: 预处理。")
-        return
-
-    logger.info(f"扫描完成，找到 {len(files_to_process)} 个新文件需要处理。")
-
-    # --- 开始处理 ---
+    logger.info(f"扫描完成，找到 {len(files_to_process)} 个文件。")
+    
     success_count = 0
-    for file_path, output_path in tqdm(files_to_process, desc="预处理进度"):
-        try:
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_data = []
-
-            # 🌟 [关键修复] 针对 txt 文件的特殊处理
-            # 解决 Windows 下 libmagic 缺失导致 partition 报错的问题
-            if file_path.lower().endswith('.txt'):
-                try:
-                    logger.debug(f"检测到 TXT 文件，使用手动读取模式: {file_path}")
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        text_content = f.read()
-                    
-                    # 手动构造 element 结构
-                    output_data = [{
-                        "id": "txt_manual_read",
-                        "type": "NarrativeText",
-                        "text": text_content,
-                        "metadata": {"filename": os.path.basename(file_path)}
-                    }]
-                except Exception as txt_e:
-                    logger.error(f"手动读取 TXT 文件失败: {txt_e}")
-                    continue
-            else:
-                # 对于 PDF/PPT/DOCX，继续使用 unstructured partition
-                try:
-                    elements = partition(
-                        filename=file_path,
-                        strategy="auto",
-                        languages=['chi_sim', 'eng']
-                    )
-
-                    for el in elements:
-                        if hasattr(el, 'text') and el.text:
-                            el.text = clean(el.text, bullets=True)
-                            el.text = clean_extra_whitespace(el.text)
-
-                        element_dict = {
+    for file_path in tqdm(files_to_process, desc="处理进度"):
+        file_ext = os.path.splitext(file_path)[1].lower()
+        output_data = []
+        
+        # --- 路由分发 ---
+        if file_ext == '.txt':
+            output_data = process_txt_native(file_path)
+            
+        elif file_ext == '.pptx':
+            output_data = process_pptx_native(file_path)
+            
+        elif file_ext == '.pdf':
+            output_data = process_pdf_native(file_path)
+            
+        elif file_ext == '.docx':
+            # 对于 DOCX，如果你发现 Native 提取表格太麻烦，
+            # 可以直接回退到 unstructured，它对 docx 支持通常不错。
+            # 或者使用 python-docx 提取纯文本。
+            # 这里为了稳妥，DOCX 我们演示继续使用 unstructured，
+            # 除非你想只提取纯文本段落。
+            try:
+                # logger.info(f"使用 Unstructured 处理 DOCX: {os.path.basename(file_path)}")
+                elements = partition(filename=file_path)
+                for el in elements:
+                    if hasattr(el, 'text') and el.text.strip():
+                        output_data.append({
                             "id": str(el.id),
-                            "type": str(el.category),
-                            "text": el.text,
-                            "metadata": el.metadata.to_dict() if hasattr(el, 'metadata') else {}
-                        }
-                        output_data.append(element_dict)
-                except Exception as part_e:
-                    # 如果 unstructured 失败，不要崩溃，记录错误并跳过
-                    logger.error(f"Unstructured 解析失败: {part_e}")
-                    continue
+                            "type": "Text",
+                            "text": el.text.strip(),
+                            "metadata": {"filename": os.path.basename(file_path)}
+                        })
+            except Exception as e:
+                logger.error(f"DOCX (Unstructured) 解析失败: {e}")
 
-            # 只有当 output_data 不为空时才写入
-            if output_data:
-                with open(output_path, 'w', encoding='utf-8') as f:
-                    json.dump(output_data, f, ensure_ascii=False, indent=4)
-                success_count += 1
-            else:
-                logger.warning(f"文件处理后无内容: {file_path}")
+        else:
+            # 其他格式 (jpg, html, etc.) -> 兜底
+            try:
+                elements = partition(filename=file_path)
+                for el in elements:
+                    if hasattr(el, 'text') and el.text.strip():
+                        output_data.append({
+                            "id": str(el.id),
+                            "type": "Text",
+                            "text": el.text.strip(),
+                            "metadata": {"filename": os.path.basename(file_path)}
+                        })
+            except Exception as e:
+                logger.error(f"兜底解析失败 [{file_ext}]: {e}")
 
-        except Exception as e:
-            # 🌟 捕获单个文件错误，避免整个流程崩溃
-            logger.error(f"!!! 处理文件 {file_path} 时发生严重错误: {e}")
+        # --- 保存结果 ---
+        if output_data:
+            relative_path = os.path.relpath(file_path, input_dir)
+            output_json_path = output_dir / (os.path.splitext(relative_path)[0] + '.json')
+            output_json_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(output_json_path, 'w', encoding='utf-8') as f:
+                json.dump(output_data, f, ensure_ascii=False, indent=4)
+            success_count += 1
+        else:
+            logger.warning(f"跳过空文件或解析失败: {os.path.basename(file_path)}")
 
-    logger.info(f"完成: 预处理。成功处理 {success_count}/{len(files_to_process)} 个文件。")
-    logger.info(f"所有输出均已保存到 {output_dir}")
-
+    logger.info(f"预处理完成。成功: {success_count}/{len(files_to_process)}")
 
 if __name__ == "__main__":
-    try:
-        settings.setup_directories()
-        run_preprocessing()
-    except Exception as e:
-        print(f"运行失败: {e}")
+    settings.setup_directories()
+    run_preprocessing()
