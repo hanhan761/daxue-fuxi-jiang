@@ -4,6 +4,7 @@ import webbrowser
 import importlib
 import shutil
 import uuid
+import json
 from threading import Timer
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -18,21 +19,80 @@ from configs import settings
 from src.utils.logger_config import logger
 import src
 
+# --- 1. 导入业务模块 ---
+# 导入 orchestrator (生成知识库流水线)
+try:
+    import src.orchestrator
+except ImportError as e:
+    logger.error(f"无法导入 src.orchestrator: {e}")
+
+# 导入 quiz_agent (费曼技巧出题智能体)
+try:
+    import src.feiman.quiz_agent
+except ImportError as e:
+    logger.error(f"无法导入 src.feiman.quiz_agent: {e}")
+
+
+# 初始化目录
 settings.setup_directories()
 logger.info(">>> 系统初始化... 目录结构已创建")
 
 try:
-    import src.orchestrator 
-
     app = Flask(__name__)
-    CORS(app)
+    CORS(app) # 允许跨域，方便前端开发调试
 
     BASE_TEMP_DIR = getattr(settings, 'TEMP_DIR', Path(PROJECT_ROOT) / 'temp_uploads')
 
+    # --- 路由: 健康检查 ---
     @app.route('/api/health', methods=['GET'])
     def health_check():
         return {"status": "ok"}
 
+    # --- 路由: 费曼技巧 - AI 出题 (新增) ---
+    @app.route('/api/feynman', methods=['POST'])
+    def feynman_quiz():
+        """
+        接收知识点 topic 和 api_token，调用 quiz_agent 生成题目
+        """
+        try:
+            # 获取 JSON 数据
+            data = request.get_json()
+            if not data:
+                return jsonify({'error': 'Request body must be JSON'}), 400
+
+            topic = data.get('topic')
+            api_token = data.get('api_token')
+
+            if not topic:
+                return jsonify({'error': '缺少 topic 参数'}), 400
+            if not api_token:
+                return jsonify({'error': '缺少 api_token 参数'}), 400
+
+            # 1. 设置环境变量 (供 Agent 内部使用)
+            os.environ['DEEPSEEK_API_KEY'] = api_token
+            
+            # 2. 重新加载模块 (确保 Token 更新生效，无需重启服务)
+            importlib.reload(src.feiman.quiz_agent)
+
+            logger.info(f">>> [费曼模式] 收到请求: Topic='{topic}'")
+
+            # 3. 调用智能体生成题目
+            # run_quiz_generation 返回的是一个字典 (QuizItem.to_dict())
+            result = src.feiman.quiz_agent.run_quiz_generation(topic)
+
+            if result:
+                logger.info(f"[费曼模式] 生成成功: {result.get('question')[:20]}...")
+                return jsonify(result)
+            else:
+                logger.error("[费曼模式] 生成失败，Agent 返回 None")
+                return jsonify({'error': 'AI 生成题目失败，请检查日志或 Token 是否有效'}), 500
+
+        except Exception as e:
+            logger.exception(f"[费曼模式] 接口发生异常: {e}")
+            return jsonify({'error': str(e)}), 500
+
+
+    # --- 路由: 生成知识库 (原有功能) ---
     @app.route('/api/generate_kb', methods=['POST'])
     def generate_kb():
         # 生成唯一任务ID，隔离不同请求的文件
@@ -49,6 +109,7 @@ try:
             if not api_token:
                 return jsonify({'error': '未提供 Token'}), 400
             
+            # 设置环境变量并重载模块
             os.environ['DEEPSEEK_API_KEY'] = api_token
             importlib.reload(src.orchestrator)
             
@@ -69,7 +130,6 @@ try:
 
             # 3. 读取并返回结果
             if os.path.exists(generated_file_path):
-                import json
                 with open(generated_file_path, 'r', encoding='utf-8') as f:
                     result_data = json.load(f)
                 
@@ -98,16 +158,25 @@ try:
                 except Exception as cleanup_error:
                     logger.error(f"清理输入目录失败: {cleanup_error}")
 
+    # --- 辅助: 自动打开浏览器 ---
     def open_browser():
         try:
+            # 确保这里指向你正确的前端入口文件
             webbrowser.open('file://' + os.path.abspath("start.html"))
         except:
             pass
 
+    # --- 启动服务器 ---
     if __name__ == '__main__':
         print("🚀 服务器启动中...")
+        print(f"📡 监听端口: 5000")
+        print(f"📂 根目录: {PROJECT_ROOT}")
+        
+        # 稍微延迟一点打开浏览器，等待 Flask 启动
         Timer(1.5, open_browser).start()
+        
+        # 生产环境建议 debug=False
         app.run(debug=False, port=5000)
 
 except Exception as e:
-    print(f"启动失败: {e}")
+    print(f"CRITICAL: 服务器启动失败: {e}")

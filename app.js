@@ -1,18 +1,17 @@
 /**
- * 大学复习酱 (Smart Review App) - v3.0 AI Integration
- * * 新增功能:
- * 1. AI Generator UI: 支持上传文档 (PDF, PPT, DOCX, TXT)
- * 2. API Client: 对接 Python 后端 (Flask/FastAPI)
- * 3. Auto Import: 生成完成后自动导入知识库
+ * 大学复习酱 (Smart Review App) - v3.1 Feynman Feature Integration
+ * * v3.1 新增功能:
+ * 1. 费曼技巧 (Feynman Quiz): 在复习时点击按钮，AI 针对当前知识点出题。
+ * 2. 交互式答题 UI: 自动判断对错并展示解析。
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 配置: 后端 API 地址 ---
-    // 请确保你的 Python 服务器运行在此时端口，或者根据实际情况修改
     const API_CONFIG = {
         BASE_URL: 'http://127.0.0.1:5000',
-        GENERATE_ENDPOINT: '/api/generate_kb'
+        GENERATE_ENDPOINT: '/api/generate_kb',
+        FEYNMAN_ENDPOINT: '/api/feynman' // 新增: 费曼出题接口
     };
 
     // --- 0. 导入/导出辅助函数 (保持不变) ---
@@ -115,11 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 2. 键位与配置管理器 (新增 Token 管理) ---
+    // --- 2. 键位与配置管理器 (保持不变) ---
     const ConfigManager = {
-        // 键位存储 Key
         keybindStoreKey: 'smartReviewKeybinds_v1' ,
-        // Token 存储 Key
         tokenStoreKey: 'smartReviewToken_v1' ,
         
         defaultKeys : {
@@ -138,12 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(this.keybindStoreKey, JSON .stringify(keybinds));
         },
 
-        // 新增: 获取 Token
         getToken()  {
             return localStorage.getItem(this.tokenStoreKey) || '' ;
         },
 
-        // 新增: 保存 Token
         saveToken(token)  {
             localStorage.setItem(this .tokenStoreKey, token.trim());
         }
@@ -271,7 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return newKB;
         },
 
-        // 直接保存完整的 KB 对象 (用于 AI 导入)
         saveFullKnowledgeBase(kbObject) {
             const data = this.loadData();
             data.knowledgeBases.push(kbObject);
@@ -379,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 4. UI 渲染器 (修改首页，增加 AI 按钮) ---
+    // --- 4. UI 渲染器 (更新) ---
     const UIRenderer = {
 
         injectGraphStyles() {
@@ -405,10 +399,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     animation: spin 1s linear infinite; margin-bottom: 20px;
                 }
                 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                .ai-badge {
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-left: 5px;
+                
+                /* 费曼技巧 UI 样式 */
+                .quiz-container { margin-top: 10px; }
+                .quiz-question { font-size: 1.1em; font-weight: 600; margin-bottom: 20px; color: #333; line-height: 1.5; }
+                .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+                .quiz-option-btn {
+                    text-align: left; padding: 15px; border: 2px solid #eee; border-radius: 8px; background: #fff;
+                    cursor: pointer; transition: all 0.2s; font-size: 15px;
                 }
+                .quiz-option-btn:hover { background-color: #f7f9fc; border-color: #d0d7de; }
+                .quiz-option-btn.correct { background-color: #ecfdf5; border-color: #10b981; color: #065f46; }
+                .quiz-option-btn.wrong { background-color: #fef2f2; border-color: #ef4444; color: #991b1b; }
+                .quiz-analysis { margin-top: 20px; padding: 15px; background: #f8fafc; border-left: 4px solid var(--color-primary); border-radius: 4px; display: none; animation: fadeIn 0.3s; }
+                .quiz-analysis h4 { margin-bottom: 5px; color: var(--color-primary); font-size: 14px; }
+                .quiz-analysis p { font-size: 14px; color: #555; line-height: 1.6; }
+                @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
                 @media (max-width: 960px) {
                     .review-grid { grid-template-columns: 1fr; }
                     .context-panel { display: none; }
@@ -553,7 +560,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h2 class="page-header-title">复习中: ${this.escapeHTML(kb.name)}</h2>
                         <span class="page-header-meta">当前: ${currentIndex + 1} / 总列队: ${totalCount}</span>
                     </div>
-                    <button class="btn btn-secondary" data-action="go-to-kb" data-id="${kb.id}">结束复习</button>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border:none; color:#333; font-weight:bold;" 
+                            data-action="feynman-quiz" title="AI出题检测对该知识点的掌握情况">
+                            ✨ 费曼一下
+                        </button>
+                        <button class="btn btn-secondary" data-action="go-to-kb" data-id="${kb.id}">结束复习</button>
+                    </div>
                 </div>
                 
                 <div class="review-grid">
@@ -737,8 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.innerHTML = `
                 <div class="spinner"></div>
                 <h3 style="color: #333; font-weight: 600;">${message}</h3>
-                <p style="color: #777; margin-top: 10px;">多智能体系统正在阅读您的资料并构建图谱...</p>
-                <p style="color: #999; font-size: 12px;">(根据文件大小，这可能需要几分钟)</p>
+                <p style="color: #777; margin-top: 10px;">智能体正在飞速运转...</p>
             `;
             document.body.appendChild(overlay);
         },
@@ -749,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 5. 模态弹窗管理器 (增加 AI 模态) ---
+    // --- 5. 模态弹窗管理器 (更新: 新增交互式 Quiz) ---
     const ModalManager = {
         overlay: document.getElementById('modal-overlay'),
         titleEl: document.getElementById('modal-title'),
@@ -759,7 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
         onConfirmCallback: null,
         tempPreviewUrl: null,
         currentPasteHandler: null,
-        uploadedFiles: [], // 用于 AI 上传
+        uploadedFiles: [], 
 
         init() {
             this.overlay.addEventListener('click', (e) => {
@@ -803,7 +815,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
-        // --- 新增: AI 生成器表单 ---
+        // --- 新增: 交互式 Quiz 弹窗 ---
+        showQuiz(quizData) {
+            // 解析正确答案的索引（简单假设答案字符串包含 "A." / "B." 等前缀，或完全匹配）
+            const answerStr = quizData.answer || "";
+            // 简单的提取逻辑，假设选项格式是 "A. xxxx"
+            
+            const body = `
+                <div class="quiz-container">
+                    <p class="quiz-question">${UIRenderer.escapeHTML(quizData.question)}</p>
+                    <div class="quiz-options">
+                        ${quizData.options.map((opt, index) => `
+                            <button class="quiz-option-btn" data-opt="${UIRenderer.escapeHTML(opt)}">
+                                ${UIRenderer.escapeHTML(opt)}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="quiz-analysis-box" class="quiz-analysis">
+                        <h4>💡 答案解析</h4>
+                        <p>${UIRenderer.escapeHTML(quizData.analysis || "暂无解析")}</p>
+                        <p style="margin-top:10px; font-weight:bold; color:var(--color-primary);">正确答案: ${UIRenderer.escapeHTML(quizData.answer)}</p>
+                    </div>
+                </div>
+            `;
+
+            // 展示弹窗，不需要默认的“确认”逻辑，而是自定义“关闭”
+            this.show('🧠 费曼测试 (AI生成)', body, '关闭', () => this.hide());
+            this.cancelBtn.style.display = 'none'; // 隐藏取消按钮
+
+            // 绑定交互逻辑
+            const btns = this.bodyEl.querySelectorAll('.quiz-option-btn');
+            const analysisBox = this.bodyEl.querySelector('#quiz-analysis-box');
+
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 防止重复点击
+                    if (this.bodyEl.querySelector('.quiz-option-btn.correct') || 
+                        this.bodyEl.querySelector('.quiz-option-btn.wrong')) return;
+
+                    const selectedText = btn.dataset.opt;
+                    // 简单的判断：如果选项文本包含正确答案的关键字，或者正确答案包含选项的关键字
+                    // 更稳健的方式：比较首字母
+                    const isCorrect = selectedText.trim() === quizData.answer.trim() || 
+                                      selectedText.startsWith(quizData.answer.split('.')[0]); 
+
+                    if (isCorrect) {
+                        btn.classList.add('correct');
+                    } else {
+                        btn.classList.add('wrong');
+                        // 找到正确的并高亮
+                        btns.forEach(b => {
+                            if (b.dataset.opt.trim() === quizData.answer.trim() || 
+                                b.dataset.opt.startsWith(quizData.answer.split('.')[0])) {
+                                b.classList.add('correct');
+                            }
+                        });
+                    }
+                    
+                    // 显示解析
+                    analysisBox.style.display = 'block';
+                });
+            });
+        },
+
         showAIGeneratorForm() {
             const title = '✨ AI 智能生成知识库';
             const body = `
@@ -823,7 +897,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            this.uploadedFiles = []; // 重置文件列表
+            this.uploadedFiles = []; 
 
             this.show(title, body, '开始生成', () => {
                 const name = document.getElementById('ai-kb-name').value.trim();
@@ -836,12 +910,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 
-                // 调用 App 里的处理函数
                 App.handleAIGenerate(name, this.uploadedFiles);
                 this.hide();
             });
 
-            // 绑定拖拽和文件选择逻辑
             setTimeout(() => {
                 const dropzone = document.getElementById('ai-dropzone');
                 const fileInput = document.getElementById('ai-file-input');
@@ -855,7 +927,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </li>
                     `).join('');
                     
-                    // 绑定删除按钮
                     fileListEl.querySelectorAll('.remove-file').forEach(btn => {
                         btn.addEventListener('click', (e) => {
                             const idx = parseInt(e.target.dataset.index);
@@ -908,8 +979,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         },
         
-        // ... (showRenameKBForm, showKPForm, showReviewOptions 保持不变，此处省略以节省空间，请保留原代码) ...
-        // 请将原 app.js 中 ModalManager 的其余方法完整保留在这里
         showRenameKBForm(kbId, oldName) {
             const title = '重命名知识库';
             const body = `
@@ -993,7 +1062,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 App.router();
             });
 
-            // 图片处理逻辑绑定 (保持原样)
+            // 图片处理逻辑绑定
             const dropzone = document.getElementById('kp-image-dropzone');
             const fileInput = document.getElementById('kp-image-file');
             const previewContainer = document.getElementById('kp-image-preview-container');
@@ -1200,6 +1269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return context;
         }
     };
+
     // --- 7. 统计管理器 (保持不变) ---
     const StatsManager = {
         chartInstance: null,
@@ -1322,9 +1392,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     DBManager.saveAll();
                     console.log('数据已自动保存');
                 } catch (error) {
-                    console.error('自动保存失败:', error);
+                   // console.error('自动保存失败:', error);
                 }
-            }, 30000); // 每30秒自动保存一次
+            }, 30000); 
         },
         
         async checkBackendStatus() {
@@ -1449,9 +1519,8 @@ document.addEventListener('DOMContentLoaded', () => {
             StatsManager.renderTable(kbId);
         },
 
-        // --- 核心逻辑: 处理 AI 请求 ---
+        // --- 核心逻辑: 处理 AI 生成知识库 ---
         async handleAIGenerate(name, files) {
-            // 新增: 在上传文件之前，先从 ConfigManager 获取 Token
             const apiToken = ConfigManager.getToken();
             if (!apiToken) {
                 ModalManager.show('提示', '<p>请先在设置页面填写 API Token！</p>', '去设置', () => {
@@ -1463,17 +1532,14 @@ document.addEventListener('DOMContentLoaded', () => {
             UIRenderer.showLoading(`正在分析 ${files.length} 个文件，请稍候...`);
             
             try {
-                // 1. 构建 FormData
                 const formData = new FormData();
                 formData.append('kb_name', name);
-                formData.append('api_token', apiToken); // 确保添加 Token
+                formData.append('api_token', apiToken); 
                 
                 files.forEach(file => {
                     formData.append('files', file);
                 });
 
-                // 2. 发送请求给 Python 后端
-                // 注意：这里使用 fetch API，需要后端支持 CORS
                 const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.GENERATE_ENDPOINT}`, {
                     method: 'POST',
                     body: formData
@@ -1484,19 +1550,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(`服务器错误 (${response.status}): ${errText}`);
                 }
 
-                // 3. 接收生成的 JSON 数据
                 const resultJSON = await response.json();
                 console.log("AI 生成成功:", resultJSON);
 
-                // 4. 自动导入流程 (复用 Import 逻辑)
                 await this.autoImportJSON(resultJSON);
 
                 UIRenderer.hideLoading();
                 ModalManager.show('生成成功', `<p>知识库 "<strong>${UIRenderer.escapeHTML(name)}</strong>" 已成功构建并导入！</p>`, '立刻查看', () => {
                     ModalManager.hide();
-                    // 自动跳转到新生成的知识库
                     const allKBs = DataManager.getKnowledgeBases();
-                    const newKB = allKBs[allKBs.length - 1]; // 假设最新的是最后一个
+                    const newKB = allKBs[allKBs.length - 1]; 
                     if (newKB) window.location.hash = `#/kb/${newKB.id}`;
                     else this.router();
                 });
@@ -1508,7 +1571,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
-        // 提取公共的导入逻辑
+        // --- 核心逻辑: 处理费曼技巧出题 (新增) ---
+        async handleFeynmanQuiz() {
+            if (!ReviewEngine.currentNode) return;
+            
+            const topic = ReviewEngine.currentNode.title;
+            const apiToken = ConfigManager.getToken();
+            
+            if (!apiToken) {
+                ModalManager.show('提示', '<p>使用费曼技巧功能需要 API Token，请先在系统设置中填写。</p>', '去设置', () => {
+                    window.location.hash = '#/settings';
+                });
+                return;
+            }
+
+            UIRenderer.showLoading(`AI 正在为 "${topic}" 出题...`);
+
+            try {
+                const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.FEYNMAN_ENDPOINT}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        topic: topic,
+                        api_token: apiToken
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("API Request Failed");
+                }
+
+                const quizData = await response.json();
+                UIRenderer.hideLoading();
+                
+                // 显示交互式答题框
+                ModalManager.showQuiz(quizData);
+
+            } catch (error) {
+                UIRenderer.hideLoading();
+                console.error("Feynman quiz error:", error);
+                ModalManager.show('生成失败', `<p>AI 出题失败，请检查网络或后端日志。</p>`, '好的');
+            }
+        },
+
         async autoImportJSON(importData) {
             const isV2Graph = importData.graph_metadata && importData.nodes;
             let newKB;
@@ -1517,7 +1622,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 newKB = { 
                     ...importData, 
                     id: DataManager.uuid(), 
-                    // 如果后端没传名字，用 metadata 的，或者默认
                     name: importData.graph_metadata.name || "AI 生成的图谱", 
                     nodes: [] 
                 };
@@ -1528,7 +1632,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newNode = { ...node, id: DataManager.uuid(), stats: DataManager._getNewStatsObject(node.stats) };
                     idMap.set(oldId, newNode.id);
                     
-                    // 处理图片 Base64
                     if (node.imageData) {
                         const blob = base64ToBlob(node.imageData);
                         if (blob) {
@@ -1537,15 +1640,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             newNode.imageId = newImageId;
                         }
                     }
-                    delete newNode.imageData; // 清理 base64 避免 LocalStorage 爆炸
+                    delete newNode.imageData; 
                     newKB.nodes.push(newNode);
                 }
-                // 重新映射边的 ID
                 newKB.edges = (importData.edges || []).filter(edge => idMap.has(edge.source) && idMap.has(edge.target)).map(edge => ({
                     ...edge, id: DataManager.uuid(), source: idMap.get(edge.source), target: idMap.get(edge.target)
                 }));
             } else {
-                // 兼容旧格式
                  newKB = {
                     id: DataManager.uuid(),
                     name: importData.name || "导入数据",
@@ -1554,7 +1655,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     nodes: [],
                     edges: []
                 };
-                // ... (旧格式导入逻辑略，假设 AI 返回标准 V2 格式) ...
             }
 
             DataManager.saveFullKnowledgeBase(newKB);
@@ -1575,7 +1675,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (window.location.hash === `#/kb/${id}`) await this.renderKBDetailPage(id);
                     else window.location.hash = `#/kb/${id}`;
                     break;
-                case 'show-ai-modal': ModalManager.showAIGeneratorForm(); break; // 新增
+                case 'show-ai-modal': ModalManager.showAIGeneratorForm(); break; 
                 case 'show-add-kb-modal': ModalManager.showKBForm(); break;
                 case 'delete-kb':
                     ModalManager.show('确认删除',`<p>确定要删除知识库 "<strong>${UIRenderer.escapeHTML(target.dataset.name)}</strong>" 吗？</p><p style="color:var(--color-dont-know);">此操作不可逆。</p>`, '确认删除', async () => { await DataManager.deleteKnowledgeBase(id); this.router(); });
@@ -1621,6 +1721,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'review-again':
                     ReviewEngine.restartLastSession();
                     break;
+                // 新增: 费曼按钮处理
+                case 'feynman-quiz':
+                    await this.handleFeynmanQuiz();
+                    break;
             }
         },
 
@@ -1652,12 +1756,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 actionButton.style.transform = 'scale(0.95)'; 
                 setTimeout(() => { if (actionButton && document.body.contains(actionButton)) actionButton.style.transform = 'scale(1)'; }, 100);
             }
-        },
-
-        handleKeybindInput(e) {
-            e.preventDefault();
-            if ((e.key.startsWith('F') && e.key.length > 1) || e.key === 'Tab') return;
-            e.target.value = e.key === ' ' ? 'Space' : e.key;
         },
 
         // --- 导入/导出处理器 ---

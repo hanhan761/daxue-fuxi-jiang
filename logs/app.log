@@ -2920,3 +2920,29 @@ Exception: Pipeline 执行失败，请检查后端日志
 2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 🔗 绝对路径: C:\Users\13081\Desktop\大学复习酱\2_outputs\5_final\Smart_Review_KB.json
 2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 任务完成，返回 269 个节点
 2025-11-25 00:18:54 [INFO ] [SmartReviewGene] : 任务 [7dc784dd-6036-422a-a2b7-2ea2db051d7a] 输入临时文件已清理
+2025-11-25 14:33:26 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 14:33:26 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 14:33:47 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 14:33:47 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 14:33:47 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 14:33:47 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 14:34:34 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机器'
+2025-11-25 14:34:34 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 14:34:34 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 14:34:36 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [机器] 生成题目...
+2025-11-25 14:34:40 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "下列哪项不属于机器的基本组成部分？",
+    "option...
+2025-11-25 14:34:40 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "下列哪项不属于机器的基本组成部分？",
+  "options": [
+    "A. 动力源",
+    "B. 传动装置",
+    "C. 操作系统",
+    "D. 工作机构"
+  ],
+  "answer": "C. 操作系统",
+  "analysis": "机器的基本组成部分包括动力源、传动装置和工作机构，操作系统是软件系统，不属于机器的物理组成部分。"
+}
+2025-11-25 14:34:40 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪项不属于机器的基本组成部分？...
