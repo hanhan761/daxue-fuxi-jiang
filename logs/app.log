@@ -2946,3 +2946,115 @@ Exception: Pipeline 执行失败，请检查后端日志
   "analysis": "机器的基本组成部分包括动力源、传动装置和工作机构，操作系统是软件系统，不属于机器的物理组成部分。"
 }
 2025-11-25 14:34:40 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪项不属于机器的基本组成部分？...
+2025-11-25 16:11:41 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:11:41 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:11:58 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 16:11:58 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 16:11:58 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 16:11:58 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 16:12:34 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机器'
+2025-11-25 16:12:34 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 16:12:34 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 16:12:36 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [机器] 生成题目...
+2025-11-25 16:12:47 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "下列哪项不属于机器的基本组成部分？",
+    "option...
+2025-11-25 16:12:47 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "下列哪项不属于机器的基本组成部分？",
+  "options": [
+    "A. 动力源",
+    "B. 传动机构",
+    "C. 操作系统",
+    "D. 工作执行装置"
+  ],
+  "answer": "C. 操作系统",
+  "analysis": "机器的基本组成部分包括动力源、传动机构和工作执行装置，操作系统是软件概念，不属于机器的物理组成部分。"
+}
+2025-11-25 16:12:47 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪项不属于机器的基本组成部分？...
+2025-11-25 16:37:54 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:37:54 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:38:00 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 16:38:00 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 16:38:00 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 16:38:00 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 16:42:36 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='输运性质 （动量、能量、质量）'
+2025-11-25 16:42:36 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 16:42:36 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 16:42:38 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [输运性质 （动量、能量、质量）] 生成题目...
+2025-11-25 16:42:43 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "在输运性质中，以下哪一项通常与动量输运直接相关？",
+    ...
+2025-11-25 16:42:43 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "在输运性质中，以下哪一项通常与动量输运直接相关？",
+  "options": [
+    "A. 热传导",
+    "B. 扩散",
+    "C. 黏性",
+    "D. 渗透"
+  ],
+  "answer": "C. 黏性",
+  "analysis": "黏性描述了流体层间动量传递的阻力，是动量输运的典型例子。"
+}
+2025-11-25 16:42:43 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 在输运性质中，以下哪一项通常与动量输运直...
+2025-11-25 16:42:52 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='输运性质 （动量、能量、质量）'
+2025-11-25 16:42:52 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 16:42:52 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 16:42:54 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [输运性质 （动量、能量、质量）] 生成题目...
+2025-11-25 16:42:59 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "在输运性质中，以下哪一项通常与动量输运直接相关？",
+    ...
+2025-11-25 16:42:59 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "在输运性质中，以下哪一项通常与动量输运直接相关？",
+  "options": [
+    "A. 热传导",
+    "B. 扩散",
+    "C. 黏性",
+    "D. 渗透"
+  ],
+  "answer": "C. 黏性",
+  "analysis": "黏性描述流体层间动量传递，是动量输运的典型例子；热传导和扩散分别对应能量和质量输运。"
+}
+2025-11-25 16:42:59 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 在输运性质中，以下哪一项通常与动量输运直...
+2025-11-25 17:25:38 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='毛细现象'
+2025-11-25 17:25:38 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 17:25:38 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 17:25:40 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [毛细现象] 生成题目...
+2025-11-25 17:25:45 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "下列哪种现象属于毛细现象？",
+    "options": ...
+2025-11-25 17:25:45 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "下列哪种现象属于毛细现象？",
+  "options": [
+    "A. 水从高处流向低处",
+    "B. 墨水在纸上扩散",
+    "C. 水在细玻璃管中上升",
+    "D. 冰块在水中漂浮"
+  ],
+  "answer": "C. 水在细玻璃管中上升",
+  "analysis": "毛细现象是液体在细管中因表面张力而上升或下降的现象，水在玻璃管中上升是因为液体与管壁的附着力大于内聚力。"
+}
+2025-11-25 17:25:45 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪种现象属于毛细现象？...
+2025-11-25 17:27:09 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='毛细现象'
+2025-11-25 17:27:09 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 17:27:09 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-0315c***7f22
+2025-11-25 17:27:11 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [毛细现象] 生成题目...
+2025-11-25 17:27:15 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "下列哪种现象属于毛细现象？",
+    "options": ...
+2025-11-25 17:27:15 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "下列哪种现象属于毛细现象？",
+  "options": [
+    "A. 水从高处流向低处",
+    "B. 墨水在纸上扩散",
+    "C. 水在细玻璃管中上升",
+    "D. 冰块在水中融化"
+  ],
+  "answer": "C. 水在细玻璃管中上升",
+  "analysis": "毛细现象是液体在细管中因表面张力作用而上升或下降的现象，水在细玻璃管中上升是典型例子。"
+}
+2025-11-25 17:27:15 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪种现象属于毛细现象？...
