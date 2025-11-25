@@ -2946,3 +2946,127 @@ Exception: Pipeline 执行失败，请检查后端日志
   "analysis": "机器的基本组成部分包括动力源、传动装置和工作机构，操作系统是软件系统，不属于机器的物理组成部分。"
 }
 2025-11-25 14:34:40 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪项不属于机器的基本组成部分？...
+2025-11-25 16:44:58 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:44:58 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:44:58 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'tqdm'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 26, in <module>
+    from src.agent.agent_preprocessor import run_preprocessing
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_preprocessor.py", line 4, in <module>
+    from tqdm import tqdm
+ModuleNotFoundError: No module named 'tqdm'
+2025-11-25 16:45:19 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:45:19 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:45:19 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'nltk'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 26, in <module>
+    from src.agent.agent_preprocessor import run_preprocessing
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_preprocessor.py", line 5, in <module>
+    import nltk
+ModuleNotFoundError: No module named 'nltk'
+2025-11-25 16:46:34 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:46:34 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:47:47 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:47:47 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:50:24 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:50:24 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:50:26 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'unstructured'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 26, in <module>
+    from src.agent.agent_preprocessor import run_preprocessing
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_preprocessor.py", line 17, in <module>
+    from unstructured.partition.auto import partition
+ModuleNotFoundError: No module named 'unstructured'
+2025-11-25 16:52:58 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 16:52:58 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 16:53:03 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'yaml'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 28, in <module>
+    from src.agent.agent_classifier import run_classification
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_classifier.py", line 4, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+2025-11-25 17:20:46 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 17:20:46 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 17:20:53 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'yaml'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 28, in <module>
+    from src.agent.agent_classifier import run_classification
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_classifier.py", line 4, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+2025-11-25 17:21:28 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 17:21:28 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 17:21:30 [CRITI] [SmartReviewGene] : !!! 严重错误：导入 agent 模块失败: No module named 'yaml'
+Traceback (most recent call last):
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\orchestrator.py", line 28, in <module>
+    from src.agent.agent_classifier import run_classification
+  File "C:\Users\16083\Documents\GitHub\daxue-fuxi-jiang\src\agent\agent_classifier.py", line 4, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+2025-11-25 18:16:29 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.
+2025-11-25 18:16:29 [INFO ] [SmartReviewGene] : ✅ [Boot] 配置与日志模块加载成功
+2025-11-25 18:16:45 [INFO ] [SmartReviewGene] : ✅ [Unifier] 配置、日志及渲染模块加载成功
+2025-11-25 18:16:45 [INFO ] [SmartReviewGene] : ✅ [Merger] 配置与日志模块加载成功
+2025-11-25 18:16:45 [INFO ] [SmartReviewGene] : ✅ [Boot] 所有 Agent 核心模块导入成功
+2025-11-25 18:16:45 [INFO ] [SmartReviewGene] : >>> 系统初始化... 目录结构已创建
+2025-11-25 18:16:58 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机器'
+2025-11-25 18:16:58 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 18:16:58 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 18:17:00 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [机器] 生成题目...
+2025-11-25 18:17:05 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "下列哪项不属于机器的基本组成部分？",
+    "option...
+2025-11-25 18:17:05 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "下列哪项不属于机器的基本组成部分？",
+  "options": [
+    "A. 动力源",
+    "B. 传动装置",
+    "C. 操作系统",
+    "D. 工作机构"
+  ],
+  "answer": "C. 操作系统",
+  "analysis": "机器的基本组成部分包括动力源、传动装置和工作机构，操作系统是软件系统，不属于机器的物理组成部分。"
+}
+2025-11-25 18:17:05 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 下列哪项不属于机器的基本组成部分？...
+2025-11-25 18:17:23 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机构'
+2025-11-25 18:17:23 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 18:17:23 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 18:17:25 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [机构] 生成题目...
+2025-11-25 18:17:29 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "以下哪项属于金融机构？",
+    "options": ["...
+2025-11-25 18:17:29 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "以下哪项属于金融机构？",
+  "options": [
+    "A. 学校",
+    "B. 医院",
+    "C. 银行",
+    "D. 超市"
+  ],
+  "answer": "C. 银行",
+  "analysis": "金融机构是从事金融服务的组织，银行是典型的金融机构，负责存款、贷款等业务。"
+}
+2025-11-25 18:17:29 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 以下哪项属于金融机构？...
+2025-11-25 18:18:23 [INFO ] [SmartReviewGene] : >>> [费曼模式] 收到请求: Topic='机构'
+2025-11-25 18:18:23 [INFO ] [SmartReviewGene] : --- 启动: 练习题生成智能体 (Quiz Agent) ---
+2025-11-25 18:18:23 [INFO ] [SmartReviewGene] : [DEBUG] API 客户端初始化中... 来源: 环境变量 (os.environ), Key: sk-2101c***7b3f
+2025-11-25 18:18:24 [INFO ] [SmartReviewGene] : [Agent] 正在为知识点 [机构] 生成题目...
+2025-11-25 18:18:30 [INFO ] [SmartReviewGene] : [DEBUG] <<< API 响应片段: {
+    "question": "以下哪项最准确地描述了“机构”在管理学中的定义？",
+    ...
+2025-11-25 18:18:30 [INFO ] [SmartReviewGene] : 生成成功！
+{
+  "question": "以下哪项最准确地描述了“机构”在管理学中的定义？",
+  "options": [
+    "A. 由一群人组成的非正式团体",
+    "B. 为实现特定目标而建立的组织结构",
+    "C. 仅指政府设立的官方部门",
+    "D. 临时性的项目团队"
+  ],
+  "answer": "B. 为实现特定目标而建立的组织结构",
+  "analysis": "机构是正式的组织结构，旨在通过分工协作实现共同目标，区别于非正式或临时性团体。"
+}
+2025-11-25 18:18:30 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 以下哪项最准确地描述了“机构”在管理学中...
