@@ -1,26 +1,41 @@
-# src/feiman/quiz_agent.py
-
 import os
 import sys
 import json
 from openai import OpenAI
+import logging
 
-# 导入配置
+# --- 1. 环境路径配置 ---
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.append(PROJECT_ROOT)
+if PROJECT_ROOT not in sys.path:
+    sys.path.append(PROJECT_ROOT)
 
+# --- 2. 容错导入配置与 Logger ---
 try:
     from configs import settings
     from src.utils.logger_config import logger
-except ImportError:
-    import logging
-
+except ImportError as e:
+    logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-    # Dummy settings if needed...
+    print(f"⚠️ [Init Warning] 无法导入 settings 或 logger: {e}")
 
-# 导入新的流水线
-from src.feiman.smart_flow.pipeline import run_smart_quiz_pipeline
 
+    # [修复] 定义保底配置
+    class Settings:
+        DEEPSEEK_BASE_URL = "https://api.deepseek.com"
+        AGENT_QUIZ_MODEL = "deepseek-chat"
+        SMART_MODEL_NAME = "deepseek-chat"
+        DEEPSEEK_API_KEY = None
+
+
+    settings = Settings()
+
+# --- 3. 导入业务逻辑 (Smart Flow) ---
+try:
+    # 确保 src/feiman/smart_flow/__init__.py 存在！
+    from src.feiman.smart_flow.pipeline import run_smart_quiz_pipeline
+except ImportError as e:
+    logger.error(f"❌ 严重错误: 无法导入 smart_flow 模块。请检查 src/feiman/smart_flow/__init__.py 是否存在。详情: {e}")
+    run_smart_quiz_pipeline = None
 
 # ... (保留原有的 get_api_client 函数) ...
 def get_api_client():

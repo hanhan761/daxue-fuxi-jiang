@@ -3070,3 +3070,4 @@ ModuleNotFoundError: No module named 'yaml'
   "analysis": "机构是正式的组织结构，旨在通过分工协作实现共同目标，区别于非正式或临时性团体。"
 }
 2025-11-25 18:18:30 [INFO ] [SmartReviewGene] : [费曼模式] 生成成功: 以下哪项最准确地描述了“机构”在管理学中...
+2025-11-25 21:19:55 [INFO ] [SmartReviewGene] : Logger setup complete. Logging to console and file.

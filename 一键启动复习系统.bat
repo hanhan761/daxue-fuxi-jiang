@@ -1,7 +1,6 @@
 @echo off
 
-set CONDA_ROOT=D:\conda
-
+set CONDA_ROOT=D:\A
 set ENV_NAME=daxue
 
 set SERVER_FILE=server.py
