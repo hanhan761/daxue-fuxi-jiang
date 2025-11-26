@@ -6,6 +6,7 @@
     <!-- [图谱升级] 更改了页面标题 -->
     <title>大学复习酱 - 智能复习</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
@@ -47,7 +48,125 @@
         </div>
     </div>
 
+    <div style="margin-top: 30px; text-align: center;">
+    <button onclick="loadKnowledgeGraph()" style="
+        padding: 10px 20px; 
+        font-size: 16px; 
+        background-color: #4CAF50; 
+        color: white; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer;">
+        📊 生成知识图谱
+    </button>
+</div>
+
+<div id="graph-container" style="
+    width: 90%; 
+    height: 600px; 
+    margin: 20px auto; 
+    border: 2px solid #eee; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;"> </div>
+
+
     <!-- 始终最后加载 app.js -->
     <script src="app.js"></script>
+
+<script>
+function loadKnowledgeGraph() {
+    // 1. 显示图表容器
+    var chartDom = document.getElementById('graph-container');
+    chartDom.style.display = 'block';
+    
+    // 2. 初始化 ECharts
+    var myChart = echarts.init(chartDom);
+    myChart.showLoading(); // 显示转圈圈动画
+
+    // 3. 向后端请求数据 (这是我们刚才在 server.py 里加的接口)
+    fetch('/api/graph')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("图谱数据尚未生成，请先运行任务！");
+            }
+            return response.json();
+        })
+        .then(data => {
+            myChart.hideLoading();
+            
+            // 4. 配置图表样式
+            var option = {
+                title: { 
+                    text: '知识关联图谱', 
+                    subtext: '基于多智能体分析',
+                    left: 'left'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (x) {
+                        // 鼠标放上去显示什么
+                        if(x.dataType === 'edge') {
+                            return x.data.source + ' -> ' + x.data.target + '<br/>关系: ' + (x.data.desc || '引用');
+                        }
+                        return '<b>' + x.name + '</b><br/>' + '点击查看详情';
+                    }
+                },
+                legend: [{
+                    data: data.categories ? data.categories.map(function (a) { return a.name; }) : ['核心知识']
+                }],
+                series: [{
+                    type: 'graph',
+                    layout: 'force', // 力引导布局
+                    data: data.nodes,
+                    links: data.links,
+                    categories: data.categories || [{'name':'核心知识'}],
+                    roam: true, // 允许缩放和平移
+                    label: {
+                        show: true,
+                        position: 'right',
+                        formatter: '{b}'
+                    },
+                    labelLayout: {
+                        hideOverlap: true
+                    },
+                    scaleLimit: {
+                        min: 0.4,
+                        max: 2
+                    },
+                    lineStyle: {
+                        color: 'source',
+                        curveness: 0.3
+                    },
+                    force: {
+                        repulsion: 300,  // 斥力，越大节点分得越开
+                        edgeLength: 120   // 连线长度
+                    }
+                }]
+            };
+
+            myChart.setOption(option);
+            
+            // 5. 点击节点事件
+            myChart.on('click', function (params) {
+                if (params.dataType === 'node') {
+                    // 简单弹窗显示详情
+                    alert("【" + params.name + "】\n\n----------------\n" + params.data.info);
+                }
+            });
+        })
+        .catch(error => {
+            myChart.hideLoading();
+            alert("加载失败: " + error.message);
+            chartDom.style.display = 'none'; // 失败了就隐藏回去
+        });
+        
+    // 6. 窗口大小改变时自动调整图表
+    window.addEventListener('resize', function() {
+        myChart.resize();
+    });
+}
+</script>
+
 </body>
 </html>
