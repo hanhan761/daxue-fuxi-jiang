@@ -29,6 +29,12 @@ try:
     from src.agent.agent_parser import run_parsing
     from src.agent.agent_unifier import run_unification
     from src.agent.agent_merger import run_merging
+    
+    # ============================================
+    # [新增] 导入图谱生成智能体
+    from src.agent.agent_graph import AgentGraph
+    # ============================================
+    
     logger.info(f"✅ [Boot] 所有 Agent 核心模块导入成功")
 except ImportError as e:
     logger.critical(f"!!! 严重错误：导入 agent 模块失败: {e}", exc_info=True)
@@ -193,13 +199,32 @@ def run_pipeline(input_dir=None):
         count = count_files(settings.OUTPUT_UNIFIED)
         logger.info(f"    ✅ [完成] 统一耗时: {duration:.2f} s | 产出文件: {count} 个")
 
-        # 6. 打包
+       # 6. 打包 (原有的代码)
         logger.info(f"\n>>> [6/6] 启动【打包器 (Merger)】")
         logger.info(f"    -> 目标: 生成最终 JSON 知识库 -> {settings.OUTPUT_FINAL.name}")
         step_start_time = time.time()
         run_merging()
         duration = time.time() - step_start_time
         logger.info(f"    ✅ [完成] 打包耗时: {duration:.2f} s")
+
+        # =================================================================
+        # [新增] 7. 生成知识图谱 (Graph Generation)
+        # =================================================================
+        logger.info(f"\n>>> [7/7] 启动【图谱构建器 (Graph Agent)】")
+        logger.info(f"    -> 目标: 分析关联并生成图谱数据 -> graph_data.json")
+        try:
+            step_start_time = time.time()
+            # 实例化我们在 agent_graph.py 里写的类
+            graph_builder = AgentGraph() 
+            # 执行生成函数
+            graph_builder.run_graph_generation()
+            
+            duration = time.time() - step_start_time
+            logger.info(f"    ✅ [完成] 图谱生成耗时: {duration:.2f} s")
+        except Exception as graph_e:
+            # 这一步报错不要卡死主程序，只是图谱出不来而已
+            logger.error(f"    ⚠️ 图谱生成遇到非致命错误: {graph_e}")
+        # =================================================================
 
     except Exception as e:
         logger.critical(f"\n\n!!! 💥 流水线发生致命错误 💥 !!!")
