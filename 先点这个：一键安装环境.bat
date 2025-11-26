@@ -59,11 +59,28 @@ if not exist "%YML_FILE%" (
     exit /b
 )
 
+echo [Info] Checking for existing 'daxue' environment...
+echo [Info] If it exists, removing it to ensure a fresh install...
+call conda remove -n daxue --all -y
+
 rem 执行创建命令
+echo.
+echo [Info] Starting installation...
 conda env create -f %YML_FILE%
 
 echo.
 echo ---------------------------------------------------
+if %errorlevel% equ 0 (
+    echo [Done] Environment created successfully!
+    echo.
+    echo To start, you can assume the environment name is inside the yml file.
+) else (
+    echo [Warning] Something went wrong. 
+    echo Check the error message above.
+)
+echo ---------------------------------------------------
+
+pause
 if %errorlevel% equ 0 (
     echo [Done] Environment created successfully!
     echo.
