@@ -42,6 +42,10 @@ OUTPUT_CLASSIFIED = OUTPUT_DIR / "3_classified"     # 对应 3_classifier
 OUTPUT_PARSED = OUTPUT_DIR / "4_parsed"           # 对应 4_parser
 # ⬇️ 1. 【V4.5 升级：添加新路径】 ⬇️
 OUTPUT_UNIFIED = OUTPUT_DIR / "4.5_unified"        # 对应 4.5_unifier
+
+# ⬇️ V5.5 [新增] 给绘图师分配的目录
+OUTPUT_GRAPH_EDGES = OUTPUT_DIR / "5.5_graph_edges"
+
 OUTPUT_FINAL = OUTPUT_DIR / "5_final"            # 对应 5_merger (现在是第6步)
 
 # --- 配置和日志路径 ---
@@ -96,6 +100,8 @@ def setup_directories():
         OUTPUT_PARSED,
         # ⬇️ 4. 【V4.5 升级：添加新目录到创建列表】 ⬇️
         OUTPUT_UNIFIED,
+        # ⬇️ 4. 【V5.5 升级：绘图师输出文件】 ⬇️
+        OUTPUT_GRAPH_EDGES,
         OUTPUT_FINAL,
         LOG_DIR
     ]

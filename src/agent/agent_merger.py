@@ -30,35 +30,30 @@ except ImportError as e:
 # --- 2. 核心打包逻辑 ---
 def run_merging():
     """
-    步骤 6 (原步骤5)：打包器主函数。
-    - 🌟 读取: settings.OUTPUT_UNIFIED (所有 统一后 的 json 文件)
-    - 写入: settings.OUTPUT_FINAL / 'Smart_Review_KB.json' (单一的、可导入的知识库)
+    步骤 6: 打包器主函数 (支持图谱连线版)
     """
-    
     start_time = time.time()
     
-    # 🌟 V4.5 升级：更新日志和步骤编号
     logger.info("=================================================")
     logger.info("===    📦 步骤 6: 打包 (Merging) 启动    ===")
     logger.info("=================================================")
 
-    #⬇️ 1. 【V4.5 升级：更改输入目录】 ⬇️
+    # 1. 定义路径
     input_dir = settings.OUTPUT_UNIFIED
-    output_file = settings.OUTPUT_FINAL / "Smart_Review_KB.json"  # 最终文件名
+    # ⬇️ [新增] 读取绘图师生成的连线文件
+    edges_file = settings.OUTPUT_GRAPH_EDGES / "relationships.json"
+    output_file = settings.OUTPUT_FINAL / "Smart_Review_KB.json"
 
     logger.info(f"📂 输入目录: {input_dir}")
-    logger.info(f"💾 输出路径: {output_file}")
+    logger.info(f"🕸️ 连线文件: {edges_file}") # [新增日志]
 
     # --- 启动前检查 ---
     if not input_dir.exists():
-        # ⬇️ 2. 【V4.5 升级：更新错误消息】 ⬇️
         logger.error(f"❌ 错误：找不到“统一后”的目录 '{input_dir}'。")
-        logger.error(f"   -> 请先确保步骤 5 (unifier) 已成功运行且有产出。")
         return
 
     # --- 收集所有已解析的 .json 文件 ---
     files_to_merge = []
-    # ⬇️ 3. 【V4.5 升级：更新日志消息】 ⬇️
     logger.info(f"🔍 正在递归扫描 .json 文件...")
     
     for root, dirs, files in os.walk(input_dir):
@@ -69,106 +64,113 @@ def run_merging():
     count = len(files_to_merge)
     if count == 0:
         logger.warning(f"⚠️  警告: 在 {input_dir} 中未找到任何 .json 文件。")
-        logger.info("🛑 打包流程提前结束 (无数据)。")
         return
 
-    logger.info(f"✅ 扫描完成，共找到 {count} 个文件准备合并。")
-
-    # --- 准备最终的知识库结构 (适配 app.js V2 Graph Schema) ---
+    # --- 准备工作 ---
     kb_name = getattr(settings, "FINAL_KB_NAME", "自动生成的Smart Review知识库")
-    logger.info(f"🏷️  知识库名称: {kb_name}")
-    logger.info(f"⚙️  Schema版本: v2.0-generated")
-
-    # 🌟 [关键修改] 更改为符合前端要求的 V2 结构
+    
+    # ⬇️ [关键修改] 准备一个映射表，用于把标题转换成 ID
+    title_to_id_map = {} 
+    
     final_knowledge_base = {
         "graph_metadata": {
             "name": kb_name,
             "createdAt": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "schema_version": "v2.0-generated"
         },
-        "nodes": [],  # 原来是 knowledgePoints，现在改为 nodes
-        "edges": []   # 必须包含 edges 数组，即使为空，否则前端可能会报错
+        "nodes": [], 
+        "edges": [] 
     }
 
-    # --- 循环处理并打包 ---
     default_stats = {"know": 0, "uncertain": 0, "dontKnow": 0}
-    
     success_count = 0
     fail_count = 0
-    skip_count = 0
 
-    logger.info("🚀 开始合并数据...")
+    logger.info("🚀 开始合并节点数据...")
     
-    # 使用 tqdm 显示进度条
-    for file_path in tqdm(files_to_merge, desc="📦 打包进度", unit="file"):
+    # --- 阶段 1: 处理节点 (Nodes) ---
+    for file_path in tqdm(files_to_merge, desc="📦 打包节点", unit="file"):
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read().strip()
-                if not content:
-                    logger.warning(f"   -> 跳过空文件: {Path(file_path).name}")
-                    skip_count += 1
-                    continue
+                if not content: continue
                 kp_data = json.loads(content)
 
-            if not isinstance(kp_data, dict):
-                logger.warning(f"   -> 跳过格式错误文件 (非Dict): {Path(file_path).name}")
-                skip_count += 1
-                continue
+            if not isinstance(kp_data, dict): continue
 
-            # 注入默认统计数据 (如果缺失)
-            if "stats" not in kp_data:
-                kp_data["stats"] = default_stats
-
-            # 生成唯一 ID (如果缺失)
+            # 补全数据
+            if "stats" not in kp_data: kp_data["stats"] = default_stats
+            if "createdAt" not in kp_data: kp_data["createdAt"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+            
+            # 生成 ID
             if "id" not in kp_data:
-                # 使用标题哈希作为 ID，避免过长
                 title_hash = hashlib.md5(kp_data.get("title", "untitled").encode()).hexdigest()[:10]
                 kp_data["id"] = f"gen_{title_hash}"
 
-            # 注入创建时间 (如果缺失)
-            if "createdAt" not in kp_data:
-                kp_data["createdAt"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+            # ⬇️ [关键逻辑] 记录 "标题 -> ID" 的映射，供后续连线使用
+            if kp_data.get("title"):
+                title_to_id_map[kp_data["title"]] = kp_data["id"]
 
-            # 🌟 [关键修改] 将数据添加到 'nodes' 列表
             final_knowledge_base["nodes"].append(kp_data)
             success_count += 1
 
-        except json.JSONDecodeError as e:
-            logger.error(f"❌ JSON 解析失败 [{Path(file_path).name}]: {e}")
-            fail_count += 1
         except Exception as e:
-            logger.error(f"❌ 处理文件出错 [{Path(file_path).name}]: {e}", exc_info=True)
+            logger.error(f"❌ 处理节点失败 [{Path(file_path).name}]: {e}")
             fail_count += 1
 
-    # --- 写入最终的知识库文件 ---
+    # --- 阶段 2: 处理连线 (Edges) [新增] ---
+    logger.info("🕸️  正在处理图谱连线...")
+    edges_list = []
+    
+    if edges_file.exists():
+        try:
+            with open(edges_file, 'r', encoding='utf-8') as f:
+                raw_edges = json.loads(f.read())
+            
+            for edge in raw_edges:
+                src_title = edge.get("source")
+                tgt_title = edge.get("target")
+                relation = edge.get("desc", "related")
+
+                # 只有当起点和终点都在我们的节点库里时，才创建连线
+                if src_title in title_to_id_map and tgt_title in title_to_id_map:
+                    edges_list.append({
+                        "id": f"edge_{len(edges_list)}",
+                        "source": title_to_id_map[src_title], # 转换成 ID
+                        "target": title_to_id_map[tgt_title], # 转换成 ID
+                        "relation": relation
+                    })
+            
+            logger.info(f"✅ 成功映射并合并 {len(edges_list)} 条连线。")
+        except Exception as e:
+            logger.error(f"❌ 合并连线失败: {e}")
+    else:
+        logger.warning(f"⚠️  未找到连线文件: {edges_file} (将生成无连线图谱)")
+
+    # 把处理好的连线放进最终结果
+    final_knowledge_base["edges"] = edges_list
+
+    # --- 写入最终文件 ---
     try:
-        logger.info(f"📝 正在构建最终 JSON 文件...")
         output_file.parent.mkdir(parents=True, exist_ok=True)
-        
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(final_knowledge_base, f, ensure_ascii=False, indent=4)
 
-        # 获取文件大小
         file_size_mb = output_file.stat().st_size / (1024 * 1024)
 
-        # 🌟 [关键修改] 更新日志消息
         logger.info("-" * 40)
         logger.info(f"✅ 打包成功 (Success)")
         logger.info("-" * 40)
         logger.info(f"📊 统计:")
-        logger.info(f"   - 扫描文件: {count}")
-        logger.info(f"   - 成功合并: {success_count}")
-        logger.info(f"   - 失败/跳过: {fail_count + skip_count}")
-        logger.info("-" * 40)
+        logger.info(f"   - 节点数量: {success_count}")
+        logger.info(f"   - 连线数量: {len(edges_list)}") # [新增]
         logger.info(f"📄 输出文件: {output_file.name}")
         logger.info(f"💾 文件大小: {file_size_mb:.2f} MB")
-        logger.info(f"🔗 完整路径: {output_file.resolve()}")
         logger.info(f"⏱️  总耗时: {time.time() - start_time:.2f} 秒")
         logger.info("-" * 40)
-        logger.info("💡 提示: 你现在可以将此 JSON 文件直接拖入 'Smart Review' 前端进行导入。")
 
     except Exception as e:
-        logger.critical(f"!!! ❌ 写入最终知识库文件失败: {e}", exc_info=True)
+        logger.critical(f"!!! ❌ 写入最终文件失败: {e}", exc_info=True)
 
     logger.info("=== 📦 步骤 6: 打包 结束 ===")
 

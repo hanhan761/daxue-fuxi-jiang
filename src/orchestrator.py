@@ -29,6 +29,9 @@ try:
     from src.agent.agent_parser import run_parsing
     from src.agent.agent_unifier import run_unification
     from src.agent.agent_merger import run_merging
+    ##v5.5新增
+    from src.agent.agent_graph import run_graph_building
+    ##v5.5新增结束
     logger.info(f"✅ [Boot] 所有 Agent 核心模块导入成功")
 except ImportError as e:
     logger.critical(f"!!! 严重错误：导入 agent 模块失败: {e}", exc_info=True)
@@ -192,6 +195,15 @@ def run_pipeline(input_dir=None):
         duration = time.time() - step_start_time
         count = count_files(settings.OUTPUT_UNIFIED)
         logger.info(f"    ✅ [完成] 统一耗时: {duration:.2f} s | 产出文件: {count} 个")
+
+        # ⬇️ [新增] 5.5 构建图谱
+        logger.info(f"\n>>> [5.5/6] 启动【绘图师 (Graph Builder)】")
+        logger.info(f"    -> 目标: 分析知识关联 -> {settings.OUTPUT_GRAPH_EDGES.name}")
+        step_start_time = time.time()
+        run_graph_building()
+        duration = time.time() - step_start_time
+        logger.info(f"    ✅ [完成] 绘图耗时: {duration:.2f} s")
+
 
         # 6. 打包
         logger.info(f"\n>>> [6/6] 启动【打包器 (Merger)】")
