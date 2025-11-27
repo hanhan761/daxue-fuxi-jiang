@@ -158,32 +158,6 @@ try:
                 except Exception as cleanup_error:
                     logger.error(f"清理输入目录失败: {cleanup_error}")
 
-# =================================================================
-# [新增接口] 知识图谱数据专用通道
-# =================================================================
-    @app.route('/api/graph', methods=['GET'])
-    def get_knowledge_graph():
-        """
-        前端 ECharts 通过这个接口获取 graph_data.json
-        """
-        try:
-            # settings.OUTPUT_FINAL 是存放最终结果的文件夹 (2_outputs/5_final)
-            # 我们让 Flask 直接把里面的 graph_data.json 发给前端
-            directory = settings.OUTPUT_FINAL
-            filename = 'graph_data.json'
-            
-            # 检查文件是否存在
-            file_path = directory / filename
-            if not file_path.exists():
-                return jsonify({"error": "图谱数据尚未生成，请先点击'开始处理'并等待完成"}), 404
-                
-            return send_from_directory(directory, filename)
-            
-        except Exception as e:
-            logger.error(f"获取图谱数据失败: {e}")
-            return jsonify({"error": str(e)}), 500
-
-
     # --- 辅助: 自动打开浏览器 ---
     def open_browser():
         try:
